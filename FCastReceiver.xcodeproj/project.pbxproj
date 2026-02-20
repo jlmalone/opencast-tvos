@@ -1,0 +1,385 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52A1B2C3D4E5F607A000001F /* FCastReceiverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000013 /* FCastReceiverApp.swift */; };
+		52A1B2C3D4E5F607A0000020 /* FCastPackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000014 /* FCastPackets.swift */; };
+		52A1B2C3D4E5F607A0000021 /* FCastSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000015 /* FCastSession.swift */; };
+		52A1B2C3D4E5F607A0000022 /* FCastServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000016 /* FCastServer.swift */; };
+		52A1B2C3D4E5F607A0000023 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000017 /* PlayerManager.swift */; };
+		52A1B2C3D4E5F607A0000024 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000018 /* NetworkHelper.swift */; };
+		52A1B2C3D4E5F607A0000025 /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000019 /* IdleView.swift */; };
+		52A1B2C3D4E5F607A0000026 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000001A /* PlayerView.swift */; };
+		52A1B2C3D4E5F607A0000027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000001B /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		52A1B2C3D4E5F607A000001E /* FCastReceiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCastReceiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52A1B2C3D4E5F607A0000013 /* FCastReceiverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastReceiverApp.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000014 /* FCastPackets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastPackets.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000015 /* FCastSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastSession.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000016 /* FCastServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastServer.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000017 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000018 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000019 /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000001A /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000001B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000001D /* FCastReceiver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FCastReceiver.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52A1B2C3D4E5F607A0000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52A1B2C3D4E5F607A0000006 /* FCastReceiver */ = {
+			isa = PBXGroup;
+			children = (
+				52A1B2C3D4E5F607A0000007 /* FCastReceiver */,
+				52A1B2C3D4E5F607A000000C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52A1B2C3D4E5F607A0000007 /* FCastReceiver */ = {
+			isa = PBXGroup;
+			children = (
+				52A1B2C3D4E5F607A0000013 /* FCastReceiverApp.swift */,
+				52A1B2C3D4E5F607A0000008 /* Protocol */,
+				52A1B2C3D4E5F607A0000009 /* Player */,
+				52A1B2C3D4E5F607A000000A /* UI */,
+				52A1B2C3D4E5F607A000000B /* Utilities */,
+				52A1B2C3D4E5F607A000001B /* Assets.xcassets */,
+				52A1B2C3D4E5F607A000001C /* Info.plist */,
+				52A1B2C3D4E5F607A000001D /* FCastReceiver.entitlements */,
+			);
+			path = FCastReceiver;
+			sourceTree = "<group>";
+		};
+		52A1B2C3D4E5F607A0000008 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				52A1B2C3D4E5F607A0000014 /* FCastPackets.swift */,
+				52A1B2C3D4E5F607A0000015 /* FCastSession.swift */,
+				52A1B2C3D4E5F607A0000016 /* FCastServer.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		52A1B2C3D4E5F607A0000009 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				52A1B2C3D4E5F607A0000017 /* PlayerManager.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		52A1B2C3D4E5F607A000000A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				52A1B2C3D4E5F607A0000019 /* IdleView.swift */,
+				52A1B2C3D4E5F607A000001A /* PlayerView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		52A1B2C3D4E5F607A000000B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				52A1B2C3D4E5F607A0000018 /* NetworkHelper.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		52A1B2C3D4E5F607A000000C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52A1B2C3D4E5F607A000001E /* FCastReceiver.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52A1B2C3D4E5F607A0000002 /* FCastReceiver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52A1B2C3D4E5F607A000000E /* Build configuration list for PBXNativeTarget "FCastReceiver" */;
+			buildPhases = (
+				52A1B2C3D4E5F607A0000003 /* Sources */,
+				52A1B2C3D4E5F607A0000004 /* Resources */,
+				52A1B2C3D4E5F607A0000005 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FCastReceiver;
+			productName = FCastReceiver;
+			productReference = 52A1B2C3D4E5F607A000001E /* FCastReceiver.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52A1B2C3D4E5F607A0000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					52A1B2C3D4E5F607A0000002 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 52A1B2C3D4E5F607A000000D /* Build configuration list for PBXProject "FCastReceiver" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52A1B2C3D4E5F607A0000006;
+			productRefGroup = 52A1B2C3D4E5F607A000000C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52A1B2C3D4E5F607A0000002 /* FCastReceiver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52A1B2C3D4E5F607A0000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52A1B2C3D4E5F607A0000027 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52A1B2C3D4E5F607A0000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52A1B2C3D4E5F607A000001F /* FCastReceiverApp.swift in Sources */,
+				52A1B2C3D4E5F607A0000020 /* FCastPackets.swift in Sources */,
+				52A1B2C3D4E5F607A0000021 /* FCastSession.swift in Sources */,
+				52A1B2C3D4E5F607A0000022 /* FCastServer.swift in Sources */,
+				52A1B2C3D4E5F607A0000023 /* PlayerManager.swift in Sources */,
+				52A1B2C3D4E5F607A0000024 /* NetworkHelper.swift in Sources */,
+				52A1B2C3D4E5F607A0000025 /* IdleView.swift in Sources */,
+				52A1B2C3D4E5F607A0000026 /* PlayerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		52A1B2C3D4E5F607A000000F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		52A1B2C3D4E5F607A0000010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = appletvos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52A1B2C3D4E5F607A0000011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FCastReceiver/FCastReceiver.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "FCastReceiver/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tv.fcast.receiver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		52A1B2C3D4E5F607A0000012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FCastReceiver/FCastReceiver.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "FCastReceiver/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tv.fcast.receiver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52A1B2C3D4E5F607A000000D /* Build configuration list for PBXProject "FCastReceiver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52A1B2C3D4E5F607A000000F /* Debug */,
+				52A1B2C3D4E5F607A0000010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52A1B2C3D4E5F607A000000E /* Build configuration list for PBXNativeTarget "FCastReceiver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52A1B2C3D4E5F607A0000011 /* Debug */,
+				52A1B2C3D4E5F607A0000012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 52A1B2C3D4E5F607A0000001 /* Project object */;
+}
