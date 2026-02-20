@@ -18,7 +18,8 @@ class PlayerManager {
     var volume: Double = 1.0
     var speed: Double = 1.0
     var isPresenting: Bool = false
-    var errorMessage: String?
+    /// Non-nil when the last play attempt failed. Shown in IdleView, auto-cleared after display.
+    var lastError: String?
 
     // MARK: - AVPlayer
 
@@ -31,7 +32,7 @@ class PlayerManager {
 
     /// Called on any state/position change so FCastServer can broadcast updates.
     var onStateChange: (() -> Void)?
-    /// Called when AVPlayer reports a load failure, so FCastServer can send PlaybackError.
+    /// Called on AVPlayer load failure so FCastServer can send PlaybackError to sender.
     var onPlaybackError: ((String) -> Void)?
 
     // MARK: - Init / Deinit
@@ -81,10 +82,24 @@ class PlayerManager {
 
     func play(message: PlayMessage) {
         guard let url = URL(string: message.url) else {
-            let msg = "Invalid URL: \(message.url)"
-            errorMessage = msg
+            let msg = "Invalid URL"
+            lastError = msg
             onPlaybackError?(msg)
             return
+        }
+
+        // Reject obviously unplayable MIME types before AVPlayer even tries,
+        // so we get a clear error message rather than a silent flash.
+        if let container = message.container {
+            let unsupported = ["image/", "video/webm", "video/x-matroska",
+                               "video/mkv", "video/x-msvideo", "video/avi"]
+            if unsupported.contains(where: { container.hasPrefix($0) || container == $0 }) {
+                let msg = "Unsupported format: \(container). AVPlayer requires MP4, MOV, or HLS."
+                print("[PlayerManager] \(msg)")
+                lastError = msg
+                onPlaybackError?(msg)
+                return
+            }
         }
 
         let asset: AVURLAsset
@@ -96,24 +111,16 @@ class PlayerManager {
 
         let item = AVPlayerItem(asset: asset)
 
-        // Observe load errors. On failure:
-        // - Report the error to the sender via onPlaybackError (→ PlaybackError opcode)
-        // - Keep isPresenting = true so the player view stays visible and shows AVKit's
-        //   own error UI. Only Stop (from sender) returns to the idle screen.
-        //   This prevents the "flash then disappear" caused by instantly dismissing
-        //   on any load failure (e.g. unsupported format like WebM or PNG).
+        // On AVPlayer load failure: return to idle and surface the error.
         statusObservation = item.observe(\.status, options: [.new]) { [weak self] item, _ in
             Task { @MainActor [weak self] in
                 guard let self else { return }
                 if item.status == .failed {
                     let msg = item.error?.localizedDescription ?? "Playback failed"
                     print("[PlayerManager] AVPlayer error: \(msg)")
-                    self.errorMessage = msg
+                    self.lastError = msg
                     self.playbackState = .idle
-                    // Do NOT set isPresenting = false here.
-                    // Let the player view stay and show the error, so the screen
-                    // doesn't flicker back to idle on every unsupported-format attempt.
-                    // The sender receives PlaybackError and can decide to stop.
+                    self.isPresenting = false      // Return to IdleView to show the error
                     self.onPlaybackError?(msg)
                     self.onStateChange?()
                 }
@@ -131,7 +138,7 @@ class PlayerManager {
         avPlayer.play()
         playbackState = .playing
         isPresenting = true
-        errorMessage = nil
+        lastError = nil
         onStateChange?()
     }
 
@@ -155,7 +162,7 @@ class PlayerManager {
         currentTime = 0
         duration = 0
         isPresenting = false
-        errorMessage = nil
+        lastError = nil
         onStateChange?()
     }
 
