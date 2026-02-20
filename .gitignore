@@ -1,12 +1,11 @@
-# Xcode
+# Xcode user data
 *.xcodeproj/xcuserdata/
 *.xcodeproj/project.xcworkspace/xcuserdata/
 *.xcworkspace/xcuserdata/
 *.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 *.xcuserstate
 
-# Claude session logs
-CLAUDE_SESSION_*.md
+# Build artifacts
 DerivedData/
 build/
 *.ipa
@@ -23,6 +22,12 @@ build/
 .LSOverride
 ._*
 
-# CocoaPods (not used, but just in case)
+# Windows
+Thumbs.db
+
+# CocoaPods (not used)
 Pods/
 Podfile.lock
+
+# AI session logs
+CLAUDE_SESSION_*.md

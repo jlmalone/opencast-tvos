@@ -66,7 +66,7 @@ struct IdleView: View {
                             .font(.system(size: 20))
                             .foregroundColor(.gray)
 
-                        Text("Use Grayjay or any FCast-compatible app to cast")
+                        Text("Use any FCast-compatible app to cast")
                             .font(.system(size: 17))
                             .foregroundColor(Color.white.opacity(0.4))
                     }
