@@ -1,12 +1,14 @@
 {
   "images" : [
     {
+      "filename" : "fcast_icon_400x240.png",
       "idiom" : "tv",
       "role" : "primary-app-icon",
       "size" : "400x240",
       "scale" : "1x"
     },
     {
+      "filename" : "fcast_icon_800x480.png",
       "idiom" : "tv",
       "role" : "primary-app-icon",
       "size" : "800x480",
