@@ -81,9 +81,8 @@ struct IdleView: View {
                     } label: {
                         Text("About")
                             .font(.system(size: 16))
-                            .foregroundColor(.white.opacity(0.25))
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(AboutLinkStyle())
                     .sheet(isPresented: $showAbout) {
                         AboutView()
                     }
@@ -116,6 +115,26 @@ struct IdleView: View {
             }
             .padding(80)
         }
+    }
+}
+
+// MARK: - About Link Button Style
+
+/// Subtle fine-print link that shows a proper focus state on tvOS.
+private struct AboutLinkStyle: ButtonStyle {
+    @Environment(\.isFocused) private var isFocused
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(isFocused ? .black : .white.opacity(0.35))
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(isFocused ? Color.white : Color.clear)
+            )
+            .scaleEffect(isFocused ? 1.08 : 1.0)
+            .animation(.easeInOut(duration: 0.15), value: isFocused)
     }
 }
 
