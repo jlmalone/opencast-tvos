@@ -1,7 +1,12 @@
 # Xcode
 *.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
 *.xcworkspace/xcuserdata/
 *.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+*.xcuserstate
+
+# Claude session logs
+CLAUDE_SESSION_*.md
 DerivedData/
 build/
 *.ipa
