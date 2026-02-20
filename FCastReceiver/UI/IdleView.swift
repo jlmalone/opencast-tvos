@@ -9,6 +9,8 @@ struct IdleView: View {
     let ipAddress: String
     let port: UInt16
 
+    @State private var showAbout = false
+
     private var connectionInfo: String {
         ipAddress.isEmpty ? "Connecting…" : "\(ipAddress):\(port)"
     }
@@ -72,6 +74,19 @@ struct IdleView: View {
                     }
 
                     Spacer()
+
+                    // About link — fine print at the bottom of the left column
+                    Button {
+                        showAbout = true
+                    } label: {
+                        Text("About")
+                            .font(.system(size: 16))
+                            .foregroundColor(.white.opacity(0.25))
+                    }
+                    .buttonStyle(.plain)
+                    .sheet(isPresented: $showAbout) {
+                        AboutView()
+                    }
                 }
 
                 // Right column: QR code

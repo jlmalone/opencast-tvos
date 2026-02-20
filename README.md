@@ -86,8 +86,9 @@ FCastReceiver/
 ├── Player/
 │   └── PlayerManager.swift      # AVPlayer wrapper; @Observable state (play/pause/seek/volume/speed)
 ├── UI/
+│   ├── AboutView.swift          # Credits sheet: FCast protocol, FUTO attribution, license
 │   ├── ContentView.swift        # Root view; switches between IdleView and PlayerView; error banner
-│   ├── IdleView.swift           # Waiting screen: device name, IP address, QR code
+│   ├── IdleView.swift           # Waiting screen: device name, IP address, QR code, About link
 │   └── PlayerView.swift         # UIViewControllerRepresentable wrapping AVPlayerViewController
 └── Utilities/
     └── NetworkHelper.swift      # Local IPv4 address detection; QR code generation via CoreImage
