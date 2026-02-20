@@ -54,21 +54,26 @@ class FCastSession {
             switch parseState {
             case .waitingForLength:
                 guard buffer.count >= 4 else { return }
-                let length = Int(buffer[0])
-                    | (Int(buffer[1]) << 8)
-                    | (Int(buffer[2]) << 16)
-                    | (Int(buffer[3]) << 24)
+                // Use startIndex-relative access because Data.removeFirst() advances
+                // startIndex without resetting it to 0, so buffer[0] would crash.
+                let s = buffer.startIndex
+                let length = Int(buffer[s])
+                    | (Int(buffer[s + 1]) << 8)
+                    | (Int(buffer[s + 2]) << 16)
+                    | (Int(buffer[s + 3]) << 24)
                 guard length > 0 && length <= 32768 else {
                     delegate?.sessionDidDisconnect(self)
                     return
                 }
-                buffer.removeFirst(4)
+                // Data(dropFirst) creates a fresh Data with startIndex = 0
+                buffer = Data(buffer.dropFirst(4))
                 parseState = .waitingForData(length)
 
             case .waitingForData(let length):
                 guard buffer.count >= length else { return }
+                // Data(prefix) creates a new Data with startIndex = 0, so packetData[0] is safe
                 let packetData = Data(buffer.prefix(length))
-                buffer.removeFirst(length)
+                buffer = Data(buffer.dropFirst(length))
                 parseState = .waitingForLength
 
                 guard let opcode = Opcode(rawValue: packetData[0]) else {
