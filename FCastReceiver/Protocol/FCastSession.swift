@@ -71,8 +71,16 @@ class FCastSession {
                 buffer.removeFirst(length)
                 parseState = .waitingForLength
 
-                guard let opcode = Opcode(rawValue: packetData[0]) else { continue }
+                guard let opcode = Opcode(rawValue: packetData[0]) else {
+                    print("[FCastSession] Unknown opcode \(packetData[0]), skipping")
+                    continue
+                }
                 let body = length > 1 ? Data(packetData.dropFirst()) : nil
+                if let body, let str = String(data: body, encoding: .utf8) {
+                    print("[FCastSession] RX opcode=\(opcode)(\(opcode.rawValue)) body=\(str)")
+                } else {
+                    print("[FCastSession] RX opcode=\(opcode)(\(opcode.rawValue)) no-body")
+                }
                 delegate?.session(self, didReceive: opcode, data: body)
             }
         }

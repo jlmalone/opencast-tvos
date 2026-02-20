@@ -26,5 +26,14 @@
 	<string>FCast Receiver uses the local network to receive video and audio streams from sender devices.</string>
 	<key>UIApplicationIdleTimerDisabled</key>
 	<true/>
+	<!-- Allow arbitrary HTTP loads so the receiver can play any URL the sender provides,
+	     including http:// streams, local test servers, and non-HTTPS media URLs. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsForMedia</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

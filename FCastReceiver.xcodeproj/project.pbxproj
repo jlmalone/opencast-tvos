@@ -16,6 +16,7 @@
 		52A1B2C3D4E5F607A0000025 /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000019 /* IdleView.swift */; };
 		52A1B2C3D4E5F607A0000026 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000001A /* PlayerView.swift */; };
 		52A1B2C3D4E5F607A0000027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000001B /* Assets.xcassets */; };
+		52A1B2C3D4E5F607A0000029 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000028 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		52A1B2C3D4E5F607A0000018 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000019 /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001A /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000028 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001D /* FCastReceiver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FCastReceiver.entitlements; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		52A1B2C3D4E5F607A000000A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				52A1B2C3D4E5F607A0000028 /* ContentView.swift */,
 				52A1B2C3D4E5F607A0000019 /* IdleView.swift */,
 				52A1B2C3D4E5F607A000001A /* PlayerView.swift */,
 			);
@@ -187,6 +190,7 @@
 				52A1B2C3D4E5F607A0000024 /* NetworkHelper.swift in Sources */,
 				52A1B2C3D4E5F607A0000025 /* IdleView.swift in Sources */,
 				52A1B2C3D4E5F607A0000026 /* PlayerView.swift in Sources */,
+				52A1B2C3D4E5F607A0000029 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

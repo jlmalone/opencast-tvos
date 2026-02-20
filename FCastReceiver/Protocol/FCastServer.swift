@@ -61,6 +61,7 @@ class FCastServer {
     // MARK: - Connection Handling
 
     private func handleNewConnection(_ connection: NWConnection) {
+        print("[FCastServer] New connection from \(connection.endpoint)")
         let session = FCastSession(connection: connection)
         session.delegate = self
         sessions[ObjectIdentifier(session)] = session
