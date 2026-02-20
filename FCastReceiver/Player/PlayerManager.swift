@@ -26,12 +26,13 @@ class PlayerManager {
 
     // MARK: - Internal
 
-    // nonisolated(unsafe) lets us access these in deinit (which is nonisolated).
     nonisolated(unsafe) private var timeObserver: Any?
     nonisolated(unsafe) private var statusObservation: NSKeyValueObservation?
 
-    /// Called whenever playback state or position changes, so FCastServer can broadcast updates.
+    /// Called on any state/position change so FCastServer can broadcast updates.
     var onStateChange: (() -> Void)?
+    /// Called when AVPlayer reports a load failure, so FCastServer can send PlaybackError.
+    var onPlaybackError: ((String) -> Void)?
 
     // MARK: - Init / Deinit
 
@@ -58,8 +59,6 @@ class PlayerManager {
             forInterval: CMTime(seconds: 0.5, preferredTimescale: 600),
             queue: .main
         ) { [weak self] time in
-            // Dispatch to @MainActor to satisfy Swift concurrency checker.
-            // The callback is already on .main queue, so this runs synchronously.
             Task { @MainActor [weak self] in
                 guard let self else { return }
                 let seconds = time.seconds
@@ -82,11 +81,12 @@ class PlayerManager {
 
     func play(message: PlayMessage) {
         guard let url = URL(string: message.url) else {
-            errorMessage = "Invalid URL: \(message.url)"
+            let msg = "Invalid URL: \(message.url)"
+            errorMessage = msg
+            onPlaybackError?(msg)
             return
         }
 
-        // Build AVURLAsset with optional custom headers
         let asset: AVURLAsset
         if let msgHeaders = message.headers, !msgHeaders.isEmpty {
             asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey": msgHeaders])
@@ -96,15 +96,25 @@ class PlayerManager {
 
         let item = AVPlayerItem(asset: asset)
 
-        // Observe for load errors
+        // Observe load errors. On failure:
+        // - Report the error to the sender via onPlaybackError (→ PlaybackError opcode)
+        // - Keep isPresenting = true so the player view stays visible and shows AVKit's
+        //   own error UI. Only Stop (from sender) returns to the idle screen.
+        //   This prevents the "flash then disappear" caused by instantly dismissing
+        //   on any load failure (e.g. unsupported format like WebM or PNG).
         statusObservation = item.observe(\.status, options: [.new]) { [weak self] item, _ in
             Task { @MainActor [weak self] in
                 guard let self else { return }
                 if item.status == .failed {
                     let msg = item.error?.localizedDescription ?? "Playback failed"
+                    print("[PlayerManager] AVPlayer error: \(msg)")
                     self.errorMessage = msg
                     self.playbackState = .idle
-                    self.isPresenting = false
+                    // Do NOT set isPresenting = false here.
+                    // Let the player view stay and show the error, so the screen
+                    // doesn't flicker back to idle on every unsupported-format attempt.
+                    // The sender receives PlaybackError and can decide to stop.
+                    self.onPlaybackError?(msg)
                     self.onStateChange?()
                 }
             }

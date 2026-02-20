@@ -24,6 +24,9 @@ struct FCastReceiverApp: App {
         playerManager.onStateChange = { [weak srv] in
             srv?.broadcastPlaybackUpdate()
         }
+        playerManager.onPlaybackError = { [weak srv] message in
+            srv?.broadcastError(message)
+        }
         srv.start()
     }
 }
