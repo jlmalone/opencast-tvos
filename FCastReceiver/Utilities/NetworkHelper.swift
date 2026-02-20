@@ -38,6 +38,8 @@ struct NetworkHelper {
     }
 
     /// Generates a QR code UIImage from the given string.
+    /// Uses CIContext to render to a CGImage-backed UIImage — required for
+    /// SwiftUI Image(uiImage:) to display correctly (CIImage-backed UIImages render blank).
     static func generateQRCode(from string: String) -> UIImage? {
         guard let data = string.data(using: .utf8),
               let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
@@ -46,6 +48,10 @@ struct NetworkHelper {
         guard let output = filter.outputImage else { return nil }
         let scale: CGFloat = 12
         let scaled = output.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
-        return UIImage(ciImage: scaled)
+        // Must render through CIContext → CGImage; UIImage(ciImage:) is lazy and
+        // SwiftUI cannot draw it — it renders as a blank/transparent image.
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(scaled, from: scaled.extent) else { return nil }
+        return UIImage(cgImage: cgImage)
     }
 }
