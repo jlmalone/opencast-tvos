@@ -98,7 +98,7 @@ struct PlaybackErrorMessage: Codable {
 struct InitialReceiverMessage: Codable {
     var displayName: String
     var appName: String = "FCast Receiver tvOS"
-    var appVersion: String = "1.2.0"
+    var appVersion: String = "1.3.0"
     var playData: PlayMessage? = nil
     var experimentalCapabilities: ReceiverCapabilities? = nil
 }

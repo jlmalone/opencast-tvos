@@ -21,6 +21,8 @@
 		52A1B2C3D4E5F607A000002A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000002B /* AboutView.swift */; };
 		52A1B2C3D4E5F607A000002F /* VLCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000002C /* VLCPlayerView.swift */; };
 		52A1B2C3D4E5F607A0000030 /* ImageDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000002D /* ImageDisplayView.swift */; };
+		52A1B2C3D4E5F607A0000034 /* WHEPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000033 /* WHEPClient.swift */; };
+		52A1B2C3D4E5F607A0000036 /* WebRTCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000035 /* WebRTCPlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		52A1B2C3D4E5F607A000002C /* VLCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000002D /* ImageDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000002E /* FCastReceiver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FCastReceiver-Bridging-Header.h"; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000033 /* WHEPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WHEPClient.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000035 /* WebRTCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCPlayerView.swift; sourceTree = "<group>"; };
 		B4C1A4F23ECCB9EC68458663 /* Pods_FCastReceiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCastReceiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				52A1B2C3D4E5F607A0000017 /* PlayerManager.swift */,
+				52A1B2C3D4E5F607A0000033 /* WHEPClient.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 				52A1B2C3D4E5F607A0000019 /* IdleView.swift */,
 				52A1B2C3D4E5F607A000001A /* PlayerView.swift */,
 				52A1B2C3D4E5F607A000002C /* VLCPlayerView.swift */,
+				52A1B2C3D4E5F607A0000035 /* WebRTCPlayerView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -167,6 +173,9 @@
 			dependencies = (
 			);
 			name = FCastReceiver;
+			packageProductDependencies = (
+				52A1B2C3D4E5F607A0000032 /* WebRTC */,
+			);
 			productName = FCastReceiver;
 			productReference = 52A1B2C3D4E5F607A000001E /* FCastReceiver.app */;
 			productType = "com.apple.product-type.application";
@@ -198,6 +207,9 @@
 			productRefGroup = 52A1B2C3D4E5F607A000000C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
+			packageReferences = (
+				52A1B2C3D4E5F607A0000031 /* XCRemoteSwiftPackageReference "Specs" */,
+			);
 			targets = (
 				52A1B2C3D4E5F607A0000002 /* FCastReceiver */,
 			);
@@ -274,6 +286,8 @@
 				52A1B2C3D4E5F607A000002A /* AboutView.swift in Sources */,
 				52A1B2C3D4E5F607A000002F /* VLCPlayerView.swift in Sources */,
 				52A1B2C3D4E5F607A0000030 /* ImageDisplayView.swift in Sources */,
+				52A1B2C3D4E5F607A0000034 /* WHEPClient.swift in Sources */,
+				52A1B2C3D4E5F607A0000036 /* WebRTCPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = tv.fcast.receiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -447,7 +461,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = tv.fcast.receiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -482,6 +496,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52A1B2C3D4E5F607A0000031 /* XCRemoteSwiftPackageReference "Specs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/webrtc-sdk/Specs.git";
+			requirement = {
+				kind = exactVersion;
+				version = "137.7151.00";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52A1B2C3D4E5F607A0000032 /* WebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52A1B2C3D4E5F607A0000031 /* XCRemoteSwiftPackageReference "Specs" */;
+			productName = WebRTC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 52A1B2C3D4E5F607A0000001 /* Project object */;
 }

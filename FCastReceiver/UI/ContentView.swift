@@ -33,6 +33,9 @@ struct ContentView: View {
                             playerManager.stop()
                         }
                     }
+                case .webrtc:
+                    WebRTCPlayerView(playerManager: playerManager)
+                        .ignoresSafeArea()
                 }
             } else {
                 IdleView(

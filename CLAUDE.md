@@ -31,8 +31,22 @@ xcodebuild -project FCastReceiver.xcodeproj -scheme FCastReceiver -destination "
 - **FCast Desktop** (external): Desktop sender application
 - **fightandflowtv** (`~/ios_code/fightandflowtv`): Another tvOS app in the portfolio (different purpose — fitness video)
 
+## Dependencies
+- **TVVLCKit** (~> 3.6.0): Universal format playback (MKV, WebM, AVI, etc.) — via CocoaPods
+- **WebRTC** (webrtc-sdk/Specs 137.7151.12): WHEP/WebRTC screen mirroring — via SPM
+- Build with `.xcworkspace` (not .xcodeproj) due to CocoaPods integration
+
+## Build
+```bash
+pod install  # first time only
+xcodebuild -workspace FCastReceiver.xcworkspace -scheme FCastReceiver -destination "platform=tvOS Simulator,name=Apple TV 4K (3rd generation)" build
+```
+
 ## Platform
-- **Target**: tvOS (Apple TV)
+- **Target**: tvOS 17.0+ (Apple TV)
 - **Framework**: SwiftUI
-- **Media**: AVKit / AVFoundation
+- **Media**: AVKit / AVFoundation / TVVLCKit / WebRTC
 - **Networking**: Network.framework + Bonjour (NWListener)
+
+## Roadmap
+- **Late stage**: Migrate fully from CocoaPods to Swift Package Manager (SPM) for all dependencies

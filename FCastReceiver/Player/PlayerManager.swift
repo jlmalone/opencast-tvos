@@ -8,6 +8,7 @@ enum PlayerBackend {
     case avPlayer    // HLS, MP4, MOV, audio
     case vlc         // MKV, WebM, AVI, HEVC, everything else
     case image       // PNG, JPEG, etc.
+    case webrtc      // WHEP screen mirroring (VP8 via WebRTC)
 }
 
 // MARK: - PlayerManager
@@ -46,6 +47,10 @@ class PlayerManager {
     // MARK: - VLC
 
     var vlcPlayer: VLCMediaPlayer?
+
+    // MARK: - WebRTC / WHEP
+
+    var whepClient: WHEPClient?
 
     // MARK: - Internal
 
@@ -107,6 +112,11 @@ class PlayerManager {
         if let container {
             let lower = container.lowercased()
 
+            // WHEP screen mirroring
+            if lower == "application/x-whep" {
+                return .webrtc
+            }
+
             // Images
             if lower.hasPrefix("image/") {
                 return .image
@@ -164,6 +174,8 @@ class PlayerManager {
             playWithVLC(url: url, message: message)
         case .image:
             playImage(url: url)
+        case .webrtc:
+            playWithWHEP(url: url)
         }
     }
 
@@ -262,6 +274,44 @@ class PlayerManager {
         onStateChange?()
     }
 
+    // MARK: - WebRTC / WHEP Backend
+
+    private func playWithWHEP(url: URL) {
+        let client = WHEPClient()
+        whepClient = client
+
+        client.onStateChange = { [weak self] state in
+            guard let self else { return }
+            switch state {
+            case .connected:
+                self.playbackState = .playing
+                self.onStateChange?()
+            case .failed(let msg):
+                print("[PlayerManager] WHEP error: \(msg)")
+                self.lastError = msg
+                self.playbackState = .idle
+                self.isPresenting = false
+                self.whepClient = nil
+                self.onPlaybackError?(msg)
+                self.onStateChange?()
+            case .idle:
+                self.playbackState = .idle
+                self.isPresenting = false
+                self.whepClient = nil
+                self.onStateChange?()
+            case .connecting:
+                break
+            }
+        }
+
+        client.connect(to: url)
+
+        playbackState = .playing
+        isPresenting = true
+        lastError = nil
+        onStateChange?()
+    }
+
     // MARK: - Transport Controls
 
     func pause() {
@@ -270,7 +320,7 @@ class PlayerManager {
             avPlayer.pause()
         case .vlc:
             vlcPlayer?.pause()
-        case .image:
+        case .image, .webrtc:
             break
         }
         playbackState = .paused
@@ -283,7 +333,7 @@ class PlayerManager {
             avPlayer.play()
         case .vlc:
             vlcPlayer?.play()
-        case .image:
+        case .image, .webrtc:
             break
         }
         playbackState = .playing
@@ -307,6 +357,9 @@ class PlayerManager {
             vlcDelegate = nil
         case .image:
             imageURL = nil
+        case .webrtc:
+            whepClient?.disconnect()
+            whepClient = nil
         }
         playbackState = .idle
         currentTime = 0
@@ -321,7 +374,7 @@ class PlayerManager {
             avPlayer.seek(to: CMTime(seconds: seconds, preferredTimescale: 600))
         case .vlc:
             vlcPlayer?.time = VLCTime(int: Int32(seconds * 1000))
-        case .image:
+        case .image, .webrtc:
             break
         }
     }
@@ -334,7 +387,7 @@ class PlayerManager {
         case .vlc:
             // VLC volume is 0-200, where 100 = normal
             vlcPlayer?.audio?.volume = Int32(volume * 100)
-        case .image:
+        case .image, .webrtc:
             break
         }
     }
@@ -347,7 +400,7 @@ class PlayerManager {
                 avPlayer.rate = Float(spd)
             case .vlc:
                 vlcPlayer?.rate = Float(spd)
-            case .image:
+            case .image, .webrtc:
                 break
             }
         }
