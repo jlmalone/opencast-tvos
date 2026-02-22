@@ -20,8 +20,20 @@ struct ContentView: View {
             Color.black.ignoresSafeArea()
 
             if playerManager.isPresenting {
-                PlayerView(player: playerManager.avPlayer)
-                    .ignoresSafeArea()
+                switch playerManager.activeBackend {
+                case .avPlayer:
+                    PlayerView(player: playerManager.avPlayer)
+                        .ignoresSafeArea()
+                case .vlc:
+                    VLCPlayerView(playerManager: playerManager)
+                        .ignoresSafeArea()
+                case .image:
+                    if let imageURL = playerManager.imageURL {
+                        ImageDisplayView(url: imageURL) {
+                            playerManager.stop()
+                        }
+                    }
+                }
             } else {
                 IdleView(
                     deviceName: UIDevice.current.name,

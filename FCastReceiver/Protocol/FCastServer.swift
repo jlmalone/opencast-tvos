@@ -104,7 +104,14 @@ class FCastServer {
             session.send(.version, VersionMessage(version: 3))
 
         case .initial:
-            let reply = InitialReceiverMessage(displayName: UIDevice.current.name)
+            let reply = InitialReceiverMessage(
+                displayName: UIDevice.current.name,
+                experimentalCapabilities: ReceiverCapabilities(
+                    av: AVCapabilities(
+                        livestream: LivestreamCapabilities(whep: true)
+                    )
+                )
+            )
             session.send(.initial, reply)
 
         case .ping:
@@ -138,6 +145,21 @@ class FCastServer {
         case .setSpeed:
             guard let data, let msg = try? JSONDecoder().decode(SetSpeedMessage.self, from: data) else { return }
             playerManager.setSpeed(msg.speed)
+
+        case .setPlaylistItem:
+            guard let data, let msg = try? JSONDecoder().decode(SetPlaylistItemMessage.self, from: data) else {
+                broadcastError("Invalid playlist item message")
+                return
+            }
+            playerManager.setPlaylistItem(index: msg.itemIndex)
+
+        case .playUpdate:
+            // Sender is updating the playlist contents
+            guard let data, let msg = try? JSONDecoder().decode(PlayUpdateMessage.self, from: data) else {
+                broadcastError("Invalid play update message")
+                return
+            }
+            playerManager.playlist = msg.items
 
         default:
             break

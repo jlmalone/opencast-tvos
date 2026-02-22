@@ -61,6 +61,10 @@ struct SetPlaylistItemMessage: Codable {
     var itemIndex: Int
 }
 
+struct PlayUpdateMessage: Codable {
+    var items: [PlayMessage]
+}
+
 struct VersionMessage: Codable {
     var version: Int
 }
@@ -94,5 +98,21 @@ struct PlaybackErrorMessage: Codable {
 struct InitialReceiverMessage: Codable {
     var displayName: String
     var appName: String = "FCast Receiver tvOS"
-    var appVersion: String = "1.0.0"
+    var appVersion: String = "1.2.0"
+    var playData: PlayMessage? = nil
+    var experimentalCapabilities: ReceiverCapabilities? = nil
+}
+
+// MARK: - Experimental Capabilities (WHEP / Screen Mirroring)
+
+struct ReceiverCapabilities: Codable {
+    var av: AVCapabilities?
+}
+
+struct AVCapabilities: Codable {
+    var livestream: LivestreamCapabilities?
+}
+
+struct LivestreamCapabilities: Codable {
+    var whep: Bool?
 }

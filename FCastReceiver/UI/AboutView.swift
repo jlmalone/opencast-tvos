@@ -84,9 +84,18 @@ struct AboutView: View {
                         VStack(alignment: .leading, spacing: 14) {
                             SectionHeader(title: "This Project", icon: "chevron.left.forwardslash.chevron.right")
                             CreditRow(label: "Source code", value: "github.com/jlmalone/fcast-appletv", detail: "MIT License · open source")
-                            CreditRow(label: "Built with",  value: "Swift · SwiftUI · AVFoundation · Network.framework", detail: "No third-party dependencies")
+                            CreditRow(label: "Built with",  value: "Swift · SwiftUI · AVFoundation · TVVLCKit · Network.framework", detail: nil)
                             CreditRow(label: "License",     value: "MIT", detail: "Same license as the FCast protocol itself")
                             CreditRow(label: "Privacy Policy", value: "jlmalone.github.io/fcast-appletv", detail: "No data collected · local network only")
+                        }
+
+                        Divider().background(Color.white.opacity(0.10))
+
+                        VStack(alignment: .leading, spacing: 14) {
+                            SectionHeader(title: "Powered by VLCKit", icon: "play.rectangle.on.rectangle")
+                            CreditRow(label: "Library", value: "TVVLCKit", detail: "MKV, WebM, AVI, and 100+ other formats")
+                            CreditRow(label: "Developed by", value: "VideoLAN", detail: "videolan.org")
+                            CreditRow(label: "License", value: "LGPL 2.1", detail: "GNU Lesser General Public License v2.1")
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

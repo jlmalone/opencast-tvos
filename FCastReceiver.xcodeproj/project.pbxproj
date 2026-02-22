@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E21D9D7366F3DCF4C92F169 /* Pods_FCastReceiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1A4F23ECCB9EC68458663 /* Pods_FCastReceiver.framework */; };
 		52A1B2C3D4E5F607A000001F /* FCastReceiverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000013 /* FCastReceiverApp.swift */; };
 		52A1B2C3D4E5F607A0000020 /* FCastPackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000014 /* FCastPackets.swift */; };
 		52A1B2C3D4E5F607A0000021 /* FCastSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000015 /* FCastSession.swift */; };
@@ -18,9 +19,13 @@
 		52A1B2C3D4E5F607A0000027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000001B /* Assets.xcassets */; };
 		52A1B2C3D4E5F607A0000029 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000028 /* ContentView.swift */; };
 		52A1B2C3D4E5F607A000002A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000002B /* AboutView.swift */; };
+		52A1B2C3D4E5F607A000002F /* VLCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000002C /* VLCPlayerView.swift */; };
+		52A1B2C3D4E5F607A0000030 /* ImageDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000002D /* ImageDisplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A3D8D870AA91313279569B4 /* Pods-FCastReceiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCastReceiver.debug.xcconfig"; path = "Target Support Files/Pods-FCastReceiver/Pods-FCastReceiver.debug.xcconfig"; sourceTree = "<group>"; };
+		0D86799A1BE18DB37235E30C /* Pods-FCastReceiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCastReceiver.release.xcconfig"; path = "Target Support Files/Pods-FCastReceiver/Pods-FCastReceiver.release.xcconfig"; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000013 /* FCastReceiverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastReceiverApp.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000014 /* FCastPackets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastPackets.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000015 /* FCastSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastSession.swift; sourceTree = "<group>"; };
@@ -35,6 +40,10 @@
 		52A1B2C3D4E5F607A000001E /* FCastReceiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCastReceiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A1B2C3D4E5F607A0000028 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000002B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000002C /* VLCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerView.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000002D /* ImageDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayView.swift; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000002E /* FCastReceiver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FCastReceiver-Bridging-Header.h"; sourceTree = "<group>"; };
+		B4C1A4F23ECCB9EC68458663 /* Pods_FCastReceiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCastReceiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,17 +51,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E21D9D7366F3DCF4C92F169 /* Pods_FCastReceiver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B005A2CA84A24861E461129 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1A4F23ECCB9EC68458663 /* Pods_FCastReceiver.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		52A1B2C3D4E5F607A0000006 = {
 			isa = PBXGroup;
 			children = (
 				52A1B2C3D4E5F607A0000007 /* FCastReceiver */,
 				52A1B2C3D4E5F607A000000C /* Products */,
+				6265AAABE910551CBC602B63 /* Pods */,
+				3B005A2CA84A24861E461129 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				52A1B2C3D4E5F607A0000013 /* FCastReceiverApp.swift */,
+				52A1B2C3D4E5F607A000002E /* FCastReceiver-Bridging-Header.h */,
 				52A1B2C3D4E5F607A0000008 /* Protocol */,
 				52A1B2C3D4E5F607A0000009 /* Player */,
 				52A1B2C3D4E5F607A000000A /* UI */,
@@ -94,8 +115,10 @@
 			children = (
 				52A1B2C3D4E5F607A000002B /* AboutView.swift */,
 				52A1B2C3D4E5F607A0000028 /* ContentView.swift */,
+				52A1B2C3D4E5F607A000002D /* ImageDisplayView.swift */,
 				52A1B2C3D4E5F607A0000019 /* IdleView.swift */,
 				52A1B2C3D4E5F607A000001A /* PlayerView.swift */,
+				52A1B2C3D4E5F607A000002C /* VLCPlayerView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -116,6 +139,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6265AAABE910551CBC602B63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A3D8D870AA91313279569B4 /* Pods-FCastReceiver.debug.xcconfig */,
+				0D86799A1BE18DB37235E30C /* Pods-FCastReceiver.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52A1B2C3D4E5F607A000000E /* Build configuration list for PBXNativeTarget "FCastReceiver" */;
 			buildPhases = (
+				C9284993D7A86272142F125E /* [CP] Check Pods Manifest.lock */,
 				52A1B2C3D4E5F607A0000003 /* Sources */,
 				52A1B2C3D4E5F607A0000004 /* Resources */,
 				52A1B2C3D4E5F607A0000005 /* Frameworks */,
+				522E4C3D793A150FC5D776C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +215,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		522E4C3D793A150FC5D776C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FCastReceiver/Pods-FCastReceiver-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FCastReceiver/Pods-FCastReceiver-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FCastReceiver/Pods-FCastReceiver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9284993D7A86272142F125E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FCastReceiver-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52A1B2C3D4E5F607A0000003 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -195,6 +272,8 @@
 				52A1B2C3D4E5F607A0000026 /* PlayerView.swift in Sources */,
 				52A1B2C3D4E5F607A0000029 /* ContentView.swift in Sources */,
 				52A1B2C3D4E5F607A000002A /* AboutView.swift in Sources */,
+				52A1B2C3D4E5F607A000002F /* VLCPlayerView.swift in Sources */,
+				52A1B2C3D4E5F607A0000030 /* ImageDisplayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +396,7 @@
 		};
 		52A1B2C3D4E5F607A0000011 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A3D8D870AA91313279569B4 /* Pods-FCastReceiver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,12 +414,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tv.fcast.receiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = "FCast Receiver tvOS App Store";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FCastReceiver/FCastReceiver-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 17.0;
@@ -348,6 +429,7 @@
 		};
 		52A1B2C3D4E5F607A0000012 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D86799A1BE18DB37235E30C /* Pods-FCastReceiver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -365,12 +447,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tv.fcast.receiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = "FCast Receiver tvOS App Store";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FCastReceiver/FCastReceiver-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 17.0;
