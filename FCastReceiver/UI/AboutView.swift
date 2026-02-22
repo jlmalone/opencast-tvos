@@ -119,7 +119,7 @@ private struct CreditRow: View {
         VStack(alignment: .leading, spacing: 2) {
             Text(label.uppercased())
                 .font(.system(size: 11, weight: .medium))
-                .foregroundColor(.white.opacity(0.35))
+                .foregroundColor(.white.opacity(0.6))
                 .kerning(0.8)
             Text(value)
                 .font(.system(size: 17, weight: .medium))
@@ -127,7 +127,7 @@ private struct CreditRow: View {
             if let detail {
                 Text(detail)
                     .font(.system(size: 14))
-                    .foregroundColor(.white.opacity(0.45))
+                    .foregroundColor(.white.opacity(0.6))
             }
         }
     }

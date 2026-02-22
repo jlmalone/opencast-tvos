@@ -38,6 +38,7 @@ struct IdleView: View {
                         Image(systemName: "play.tv.fill")
                             .font(.system(size: 64))
                             .foregroundColor(Color(red: 0.2, green: 0.6, blue: 1.0))
+                            .accessibilityHidden(true)
 
                         VStack(alignment: .leading, spacing: 4) {
                             Text("FCast Receiver")
@@ -48,11 +49,13 @@ struct IdleView: View {
                                 .foregroundColor(.gray)
                         }
                     }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("FCast Receiver for Apple TV")
 
                     // Device name
                     Text(deviceName)
                         .font(.system(size: 28, weight: .medium))
-                        .foregroundColor(.white.opacity(0.7))
+                        .foregroundColor(.white.opacity(0.75))
 
                     Divider()
                         .background(Color.white.opacity(0.15))
@@ -70,7 +73,7 @@ struct IdleView: View {
 
                         Text("Use any FCast-compatible app to cast")
                             .font(.system(size: 17))
-                            .foregroundColor(Color.white.opacity(0.4))
+                            .foregroundColor(Color.white.opacity(0.6))
                     }
 
                     Spacer()
@@ -97,6 +100,8 @@ struct IdleView: View {
                             .frame(width: 260, height: 260)
                             .background(Color.white)
                             .cornerRadius(16)
+                            .accessibilityLabel("QR code to connect")
+                            .accessibilityHint("Scan with a sender app to connect to \(connectionInfo)")
 
                         Text("Scan to connect")
                             .font(.system(size: 18))
@@ -110,6 +115,7 @@ struct IdleView: View {
                                     .progressViewStyle(.circular)
                                     .tint(.white.opacity(0.3))
                             )
+                            .accessibilityLabel("Loading connection QR code")
                     }
                 }
             }
@@ -123,18 +129,19 @@ struct IdleView: View {
 /// Subtle fine-print link that shows a proper focus state on tvOS.
 private struct AboutLinkStyle: ButtonStyle {
     @Environment(\.isFocused) private var isFocused
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(isFocused ? .black : .white.opacity(0.35))
+            .foregroundColor(isFocused ? .black : .white.opacity(0.6))
             .padding(.horizontal, 20)
             .padding(.vertical, 10)
             .background(
                 RoundedRectangle(cornerRadius: 8)
                     .fill(isFocused ? Color.white : Color.clear)
             )
-            .scaleEffect(isFocused ? 1.08 : 1.0)
-            .animation(.easeInOut(duration: 0.15), value: isFocused)
+            .scaleEffect(reduceMotion ? 1.0 : (isFocused ? 1.08 : 1.0))
+            .animation(reduceMotion ? nil : .easeInOut(duration: 0.15), value: isFocused)
     }
 }
 

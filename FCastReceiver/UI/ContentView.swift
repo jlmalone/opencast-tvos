@@ -10,6 +10,7 @@ struct ContentView: View {
     let playerManager: PlayerManager
     let port: UInt16
 
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var ipAddress = ""
     @State private var showError = false
     @State private var errorText = ""
@@ -37,6 +38,7 @@ struct ContentView: View {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .foregroundColor(.yellow)
                             .font(.system(size: 28))
+                            .accessibilityHidden(true)
                         Text(errorText)
                             .font(.system(size: 22))
                             .foregroundColor(.white)
@@ -47,12 +49,14 @@ struct ContentView: View {
                     .background(.ultraThinMaterial)
                     .cornerRadius(16)
                     .padding(.bottom, 60)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("Error: \(errorText)")
+                    .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
                 }
             }
         }
-        .animation(.easeInOut(duration: 0.3), value: showError)
-        .animation(.easeInOut(duration: 0.3), value: playerManager.isPresenting)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.3), value: showError)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.3), value: playerManager.isPresenting)
         .onAppear {
             ipAddress = NetworkHelper.getLocalIPAddress() ?? ""
         }
@@ -60,6 +64,8 @@ struct ContentView: View {
             guard let newError else { return }
             errorText = newError
             withAnimation { showError = true }
+            // Announce error to VoiceOver
+            UIAccessibility.post(notification: .announcement, argument: "Error: \(newError)")
             // Auto-dismiss after 6 seconds
             Task {
                 try? await Task.sleep(for: .seconds(6))
