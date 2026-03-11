@@ -10,12 +10,15 @@ This is a community implementation of the open [FCast protocol](https://fcast.or
 
 - **Full FCast protocol v3** over TCP on port 46899
 - **Automatic discovery** via Bonjour/mDNS (`_fcast._tcp`) — Apple TV appears in sender apps without any configuration
-- **Native playback** via `AVPlayer` + `AVPlayerViewController` with the standard tvOS playback HUD
+- **Multi-backend playback** — AVPlayer (HLS, MP4, MOV, audio), TVVLCKit (MKV, WebM, AVI, HEVC, 100+ formats), WebRTC/WHEP (screen mirroring)
+- **Image casting** — display PNG, JPEG, and other images fullscreen (test patterns, screenshots)
 - **Custom HTTP headers** for auth-gated or DRM-protected streams
-- **Idle screen** showing device name, IP address, and a QR code for easy sender pairing
+- **Playlist support** — opcodes 15 (playUpdate) and 16 (setPlaylistItem)
+- **Idle screen** showing device name, IP address, QR code, and a "Play Sample" demo button
 - **Real-time state reporting** — position, duration, speed, and volume are continuously reported back to the sender
-- **Full transport control** — play, pause, resume, stop, seek, set volume, set speed
-- **Error feedback** — unsupported formats (MKV, WebM, DASH) are rejected immediately with a clear on-screen banner and a `PlaybackError` sent back to the sender
+- **Full transport control** — play, pause, resume, stop, seek, set volume, set speed via Siri Remote
+- **Accessibility** — VoiceOver labels, Dynamic Type, Reduce Motion support
+- **Error feedback** — playback failures shown with on-screen banner and `PlaybackError` sent back to the sender
 
 ---
 
@@ -36,25 +39,31 @@ git clone https://github.com/jlmalone/fcast-appletv.git
 cd fcast-appletv
 ```
 
-### 2. Open in Xcode
+### 2. Install dependencies
 
 ```bash
-open FCastReceiver.xcodeproj
+pod install
 ```
 
-### 3. Configure signing
+### 3. Open in Xcode
+
+```bash
+open FCastReceiver.xcworkspace
+```
+
+### 4. Configure signing
 
 - Select the `FCastReceiver` target → **Signing & Capabilities**
 - Choose your development team
 - Change the Bundle Identifier if needed (default: `tv.fcast.receiver`)
 
-### 4. Add the Multicast Networking capability
+### 5. Add the Multicast Networking capability
 
 In **Signing & Capabilities**, click `+` and search for **Multicast Networking**. This entitlement is required for Bonjour/mDNS advertisement so sender apps can discover the Apple TV automatically.
 
 > **Note:** For App Store distribution, `com.apple.developer.networking.multicast` requires explicit approval from Apple. For development and TestFlight, it works with any paid developer account.
 
-### 5. Build and run
+### 6. Build and run
 
 Select your Apple TV as the target device and press Run. The idle screen will appear showing the device name, local IP address, and a QR code.
 
@@ -78,20 +87,26 @@ Once the app is running on your Apple TV:
 
 ```
 FCastReceiver/
-├── FCastReceiverApp.swift       # @main App entry point; wires FCastServer to PlayerManager
+├── FCastReceiverApp.swift              # @main App entry point
+├── FCastReceiver-Bridging-Header.h     # TVVLCKit Obj-C bridge
+├── PrivacyInfo.xcprivacy               # App Store privacy manifest
 ├── Protocol/
-│   ├── FCastPackets.swift       # Opcode enum and all Codable message structs
-│   ├── FCastSession.swift       # Per-connection TCP framing: binary parser + frame sender
-│   └── FCastServer.swift        # NWListener TCP server, Bonjour advertisement, message dispatch
+│   ├── FCastPackets.swift              # Opcodes, message types, capabilities
+│   ├── FCastSession.swift              # Per-connection TCP framing
+│   └── FCastServer.swift               # TCP server + Bonjour + message dispatch
 ├── Player/
-│   └── PlayerManager.swift      # AVPlayer wrapper; @Observable state (play/pause/seek/volume/speed)
+│   ├── PlayerManager.swift             # Multi-backend player (AVPlayer/VLC/WebRTC/Image)
+│   └── WHEPClient.swift                # WebRTC WHEP client for screen mirroring
 ├── UI/
-│   ├── AboutView.swift          # Credits sheet: FCast protocol, FUTO attribution, license
-│   ├── ContentView.swift        # Root view; switches between IdleView and PlayerView; error banner
-│   ├── IdleView.swift           # Waiting screen: device name, IP address, QR code, About link
-│   └── PlayerView.swift         # UIViewControllerRepresentable wrapping AVPlayerViewController
+│   ├── AboutView.swift                 # Credits: FCast, FUTO, VLCKit attribution
+│   ├── ContentView.swift               # Root view; switches idle/player; error banner
+│   ├── IdleView.swift                  # Idle screen: connection info, QR, Play Sample
+│   ├── PlayerView.swift                # AVPlayerViewController wrapper
+│   ├── VLCPlayerView.swift             # VLC wrapper with Siri Remote controls
+│   ├── WebRTCPlayerView.swift          # WebRTC video renderer
+│   └── ImageDisplayView.swift          # Fullscreen image display
 └── Utilities/
-    └── NetworkHelper.swift      # Local IPv4 address detection; QR code generation via CoreImage
+    └── NetworkHelper.swift             # Local IPv4 detection + QR code generation
 ```
 
 ---
@@ -147,15 +162,16 @@ Receiver →  Sender:   Pong
 
 ### Supported Formats
 
-| Format | Support |
-|---|---|
-| HLS (`.m3u8`) | ✅ Best compatibility — recommended |
-| MP4 / MOV / M4V | ✅ |
-| MP3 / AAC / FLAC (audio) | ✅ |
-| MPEG-DASH (`.mpd`) | ❌ Not supported by tvOS AVPlayer |
-| MKV / WebM / AVI | ❌ Not supported by tvOS AVPlayer |
-
-Unsupported formats are detected early (before AVPlayer attempts to load them) and result in an on-screen error banner and a `PlaybackError` message sent back to the sender.
+| Format | Backend | Support |
+|---|---|---|
+| HLS (`.m3u8`) | AVPlayer | ✅ Best compatibility — recommended |
+| MP4 / MOV / M4V | AVPlayer | ✅ |
+| MP3 / AAC / FLAC (audio) | AVPlayer | ✅ |
+| MKV / WebM / AVI / TS | TVVLCKit | ✅ |
+| HEVC / H.265 / VP8 / VP9 | TVVLCKit | ✅ |
+| PNG / JPEG / GIF (images) | AsyncImage | ✅ |
+| WHEP screen mirroring | WebRTC | ✅ |
+| MPEG-DASH (`.mpd`) | — | ❌ Not supported |
 
 ---
 
@@ -185,9 +201,8 @@ To use custom icons, replace the PNG files inside each `Content.imageset` folder
 
 | Entitlement | Purpose |
 |---|---|
-| `com.apple.developer.networking.multicast` | Bonjour/mDNS advertisement so senders auto-discover the Apple TV |
 | `com.apple.security.network.server` | TCP listener on port 46899 |
-| `com.apple.security.network.client` | Outbound connections for fetching stream URLs |
+| `com.apple.security.network.client` | Outbound connections for fetching stream URLs and WHEP SDP exchange |
 
 ---
 
@@ -241,38 +256,21 @@ SwiftUI's `@Observable` macro tracks property access inside `View.body`. It does
 
 ## Roadmap
 
-### Broader format support via TVVLCKit
+### Completed
 
-AVPlayer on tvOS only supports HLS, MP4/MOV, and a subset of audio formats. Many FCast senders cast MKV, WebM, AVI, and HEVC content that AVPlayer silently rejects. Integrating [TVVLCKit](https://code.videolan.org/videolan/VLCKit) would add support for virtually all container and codec combinations:
+- ✅ TVVLCKit integration (MKV, WebM, AVI, HEVC, 100+ formats)
+- ✅ Image casting (test patterns, screenshots)
+- ✅ WebRTC/WHEP screen mirroring
+- ✅ Playlist support (opcodes 15/16)
+- ✅ Accessibility (VoiceOver, Reduce Motion)
+- ✅ "Play Sample" demo mode for testing without a sender
 
-- MKV (Matroska), WebM (VP8/VP9/AV1), AVI, FLV, TS, and more
-- HEVC/H.265, AV1, and other modern codecs
-- Embedded subtitles (SRT, SSA/ASS, PGS)
-- Multi-audio track selection
+### Planned
 
-**Trade-offs:** TVVLCKit adds ~120 MB to the app binary, replaces the native tvOS playback HUD with a custom UI, and is licensed under LGPL. For App Store distribution, LGPL requires either dynamic linking or making the compiled object files available.
-
-**Implementation sketch:**
-1. Add TVVLCKit via CocoaPods or Swift Package Manager
-2. Create a `VLCPlayerManager` mirroring the existing `PlayerManager` API
-3. Wrap `VLCMediaPlayer` in a `UIViewControllerRepresentable` for SwiftUI
-4. Fall back to AVPlayer for HLS (TVVLCKit HLS support is less mature)
-5. Route unsupported MIME types through VLC before surfacing a `PlaybackError`
-
-### Screen share / test pattern support
-
-FCast Sender's **test pattern** sends a static PNG image (`container: "image/png"`) and its **screen share** feature streams WebM video. Both are currently rejected because AVPlayer cannot decode them.
-
-Fixes:
-- **Test pattern (PNG):** Detect `image/*` containers before passing to AVPlayer; display with SwiftUI `AsyncImage` or `UIImageView` instead
-- **Screen share (WebM):** Requires either TVVLCKit (for WebM decoding) or a WebRTC library. WebM screen share at low latency via WebRTC is a larger undertaking and likely a separate integration
-
-### Other planned improvements
-
-- Playlist support (`SetPlaylistItem` opcode)
 - Subtitle track selection
 - Background audio playback (audio-only streams continue when app is backgrounded)
 - Event subscription (`SubscribeEvent` / `UnsubscribeEvent` opcodes)
+- Migrate TVVLCKit from CocoaPods to SPM (when available)
 
 ---
 
@@ -290,9 +288,11 @@ The [FCast protocol](https://fcast.org) is designed and maintained by **[FUTO](h
 
 This project is an independent community implementation of the FCast protocol for tvOS. It is not affiliated with or endorsed by FUTO.
 
-### Open Source
+### Dependencies
 
-This app is built entirely on Apple's open frameworks — SwiftUI, AVFoundation, AVKit, Network.framework, and CoreImage — with no third-party dependencies.
+- **[TVVLCKit](https://code.videolan.org/videolan/VLCKit)** (~> 3.6.0) — universal format playback (MKV, WebM, AVI, HEVC, 100+ formats). LGPL 2.1. Via CocoaPods.
+- **[WebRTC](https://github.com/webrtc-sdk/Specs)** (137.7151.00) — WHEP/WebRTC screen mirroring. BSD 3-Clause. Via SPM.
+- Apple frameworks: SwiftUI, AVFoundation, AVKit, Network.framework, CoreImage
 
 ---
 

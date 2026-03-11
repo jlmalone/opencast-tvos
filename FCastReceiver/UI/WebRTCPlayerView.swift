@@ -24,23 +24,16 @@ class WebRTCPlayerViewController: UIViewController {
 
     var playerManager: PlayerManager!
 
-    #if targetEnvironment(simulator)
-    private let renderView = UIView()  // RTCMTLVideoView not available in simulator
-    #else
     private let renderView = RTCMTLVideoView()
-    #endif
-
     private let statusLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
 
-        // Video render view
+        // Video render view (Metal-based, works on Apple Silicon simulators and devices)
         renderView.translatesAutoresizingMaskIntoConstraints = false
-        #if !targetEnvironment(simulator)
         renderView.videoContentMode = .scaleAspectFit
-        #endif
         view.addSubview(renderView)
 
         NSLayoutConstraint.activate([
@@ -63,33 +56,53 @@ class WebRTCPlayerViewController: UIViewController {
             statusLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
 
-        // Attach video track renderer
-        if let whepClient = playerManager.whepClient {
-            whepClient.onVideoTrack = { [weak self] track in
-                guard let self else { return }
-                #if !targetEnvironment(simulator)
-                track.add(self.renderView)
-                #endif
-                self.statusLabel.isHidden = true
-            }
-            whepClient.onStateChange = { [weak self] state in
-                switch state {
-                case .connected:
-                    self?.statusLabel.isHidden = true
-                case .failed(let msg):
-                    self?.statusLabel.text = "Error: \(msg)"
-                    self?.statusLabel.isHidden = false
-                default:
-                    break
-                }
+        setupGestures()
+        attachToWHEPClient()
+    }
+
+    private func attachToWHEPClient() {
+        guard let whepClient = playerManager.whepClient else { return }
+
+        let existingStateHandler = whepClient.onStateChange
+
+        whepClient.onVideoTrack = { [weak self] track in
+            guard let self else { return }
+            self.addTrackToRenderer(track)
+        }
+
+        // Chain our UI updates onto PlayerManager's existing handler
+        whepClient.onStateChange = { [weak self] state in
+            existingStateHandler?(state)
+            switch state {
+            case .connected:
+                self?.statusLabel.text = "Connected, waiting for video..."
+            case .failed(let msg):
+                self?.statusLabel.text = "Error: \(msg)"
+                self?.statusLabel.isHidden = false
+            case .idle:
+                break
+            case .connecting:
+                self?.statusLabel.text = "Connecting to screen share..."
+                self?.statusLabel.isHidden = false
             }
         }
 
-        setupGestures()
+        // If the video track arrived before this view loaded, pick it up now
+        if let existingTrack = whepClient.videoTrack {
+            print("[WebRTCPlayerView] Video track already available, attaching immediately")
+            addTrackToRenderer(existingTrack)
+        }
+    }
+
+    private func addTrackToRenderer(_ track: RTCVideoTrack) {
+        print("[WebRTCPlayerView] Adding video track to Metal renderer")
+        // Ensure layout is complete so the Metal view has a non-zero frame
+        view.layoutIfNeeded()
+        track.add(renderView)
+        statusLabel.isHidden = true
     }
 
     private func setupGestures() {
-        // Menu button: stop
         let menu = UITapGestureRecognizer(target: self, action: #selector(handleMenu))
         menu.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
         view.addGestureRecognizer(menu)

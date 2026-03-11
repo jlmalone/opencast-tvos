@@ -406,6 +406,18 @@ class PlayerManager {
         }
     }
 
+    // MARK: - Demo
+
+    /// Public domain sample video for App Store reviewers and first-time users.
+    static let sampleVideoURL = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+
+    func playSample() {
+        play(message: PlayMessage(
+            container: "video/mp4",
+            url: Self.sampleVideoURL
+        ))
+    }
+
     // MARK: - Playlist
 
     func setPlaylistItem(index: Int) {

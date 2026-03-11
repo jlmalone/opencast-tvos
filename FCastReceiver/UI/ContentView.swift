@@ -41,7 +41,8 @@ struct ContentView: View {
                 IdleView(
                     deviceName: UIDevice.current.name,
                     ipAddress: ipAddress,
-                    port: port
+                    port: port,
+                    onPlaySample: { playerManager.playSample() }
                 )
             }
 

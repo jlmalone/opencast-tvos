@@ -22,6 +22,9 @@ class WHEPClient: NSObject {
     var onStateChange: ((State) -> Void)?
     var onVideoTrack: ((RTCVideoTrack) -> Void)?
 
+    /// Stored so late-arriving views can pick up the track after the callback fires.
+    private(set) var videoTrack: RTCVideoTrack?
+
     // MARK: - WebRTC
 
     private static let factory: RTCPeerConnectionFactory = {
@@ -40,6 +43,7 @@ class WHEPClient: NSObject {
     // MARK: - Connect
 
     func connect(to whepURL: URL) {
+        print("[WHEPClient] Connecting to \(whepURL)")
         state = .connecting
         onStateChange?(.connecting)
 
@@ -93,6 +97,7 @@ class WHEPClient: NSObject {
                     return
                 }
                 guard let sdp else { return }
+                print("[WHEPClient] SDP offer created (\(sdp.sdp.count) bytes)")
                 self.handleLocalSDP(sdp, whepURL: whepURL)
             }
         }
@@ -111,6 +116,7 @@ class WHEPClient: NSObject {
                     self.onStateChange?(.failed(err))
                     return
                 }
+                print("[WHEPClient] Local description set, POSTing offer to WHEP endpoint")
                 self.postOffer(sdp.sdp, to: whepURL)
             }
         }
@@ -140,10 +146,13 @@ class WHEPClient: NSObject {
                     return
                 }
 
+                print("[WHEPClient] WHEP POST response: HTTP \(httpResponse.statusCode)")
+
                 guard (200...299).contains(httpResponse.statusCode),
                       let data,
                       let answerSDP = String(data: data, encoding: .utf8) else {
-                    let err = "WHEP: HTTP \(httpResponse.statusCode)"
+                    let body = data.flatMap { String(data: $0, encoding: .utf8) } ?? "no body"
+                    let err = "WHEP: HTTP \(httpResponse.statusCode) — \(body)"
                     self.state = .failed(err)
                     self.onStateChange?(.failed(err))
                     return
@@ -155,6 +164,8 @@ class WHEPClient: NSObject {
                         self.whepResourceURL = resourceURL
                     }
                 }
+
+                print("[WHEPClient] SDP answer received (\(answerSDP.count) bytes), setting remote description")
 
                 // Set remote description from answer
                 let answer = RTCSessionDescription(type: .answer, sdp: answerSDP)
@@ -185,6 +196,7 @@ class WHEPClient: NSObject {
         peerConnection?.close()
         peerConnection = nil
         whepResourceURL = nil
+        videoTrack = nil
         state = .idle
         onStateChange?(.idle)
     }
@@ -201,6 +213,7 @@ extension WHEPClient: RTCPeerConnectionDelegate {
     nonisolated func peerConnection(_ peerConnection: RTCPeerConnection, didAdd stream: RTCMediaStream) {
         Task { @MainActor [weak self] in
             if let videoTrack = stream.videoTracks.first {
+                self?.videoTrack = videoTrack
                 self?.onVideoTrack?(videoTrack)
             }
         }
@@ -246,8 +259,12 @@ extension WHEPClient: RTCPeerConnectionDelegate {
     nonisolated func peerConnection(_ peerConnection: RTCPeerConnection, didOpen dataChannel: RTCDataChannel) {}
 
     nonisolated func peerConnection(_ peerConnection: RTCPeerConnection, didAdd rtpReceiver: RTCRtpReceiver, streams mediaStreams: [RTCMediaStream]) {
+        let trackKind = rtpReceiver.track?.kind ?? "unknown"
+        print("[WHEPClient] RTP receiver added: \(trackKind)")
         Task { @MainActor [weak self] in
             if let videoTrack = rtpReceiver.track as? RTCVideoTrack {
+                print("[WHEPClient] Video track received, notifying view")
+                self?.videoTrack = videoTrack
                 self?.onVideoTrack?(videoTrack)
             }
         }

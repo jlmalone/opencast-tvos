@@ -17,6 +17,7 @@
 		52A1B2C3D4E5F607A0000025 /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000019 /* IdleView.swift */; };
 		52A1B2C3D4E5F607A0000026 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000001A /* PlayerView.swift */; };
 		52A1B2C3D4E5F607A0000027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000001B /* Assets.xcassets */; };
+		52A1B2C3D4E5F607A0000037 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000038 /* PrivacyInfo.xcprivacy */; };
 		52A1B2C3D4E5F607A0000029 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000028 /* ContentView.swift */; };
 		52A1B2C3D4E5F607A000002A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000002B /* AboutView.swift */; };
 		52A1B2C3D4E5F607A000002F /* VLCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A000002C /* VLCPlayerView.swift */; };
@@ -39,6 +40,7 @@
 		52A1B2C3D4E5F607A000001B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001D /* FCastReceiver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FCastReceiver.entitlements; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000038 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001E /* FCastReceiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCastReceiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A1B2C3D4E5F607A0000028 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000002B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				52A1B2C3D4E5F607A000001B /* Assets.xcassets */,
 				52A1B2C3D4E5F607A000001C /* Info.plist */,
 				52A1B2C3D4E5F607A000001D /* FCastReceiver.entitlements */,
+				52A1B2C3D4E5F607A0000038 /* PrivacyInfo.xcprivacy */,
 			);
 			path = FCastReceiver;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52A1B2C3D4E5F607A0000027 /* Assets.xcassets in Resources */,
+				52A1B2C3D4E5F607A0000037 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +422,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 44SCLSYCZZ;
@@ -428,7 +432,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = tv.fcast.receiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -451,7 +455,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 44SCLSYCZZ;
@@ -461,7 +465,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = tv.fcast.receiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

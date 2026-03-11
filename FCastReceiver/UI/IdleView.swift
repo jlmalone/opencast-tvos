@@ -8,6 +8,7 @@ struct IdleView: View {
     let deviceName: String
     let ipAddress: String
     let port: UInt16
+    var onPlaySample: (() -> Void)?
 
     @State private var showAbout = false
 
@@ -78,16 +79,26 @@ struct IdleView: View {
 
                     Spacer()
 
-                    // About link — fine print at the bottom of the left column
-                    Button {
-                        showAbout = true
-                    } label: {
-                        Text("About")
-                            .font(.system(size: 16))
-                    }
-                    .buttonStyle(AboutLinkStyle())
-                    .sheet(isPresented: $showAbout) {
-                        AboutView()
+                    // Action buttons
+                    HStack(spacing: 24) {
+                        Button {
+                            onPlaySample?()
+                        } label: {
+                            Label("Play Sample", systemImage: "play.circle")
+                                .font(.system(size: 18, weight: .medium))
+                        }
+                        .buttonStyle(IdleActionStyle())
+
+                        Button {
+                            showAbout = true
+                        } label: {
+                            Text("About")
+                                .font(.system(size: 16))
+                        }
+                        .buttonStyle(AboutLinkStyle())
+                        .sheet(isPresented: $showAbout) {
+                            AboutView()
+                        }
                     }
                 }
 
@@ -124,6 +135,27 @@ struct IdleView: View {
     }
 }
 
+// MARK: - Idle Action Button Style
+
+/// Prominent button style for primary idle screen actions.
+private struct IdleActionStyle: ButtonStyle {
+    @Environment(\.isFocused) private var isFocused
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(isFocused ? .black : .white.opacity(0.85))
+            .padding(.horizontal, 24)
+            .padding(.vertical, 12)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(isFocused ? Color.white : Color.white.opacity(0.12))
+            )
+            .scaleEffect(reduceMotion ? 1.0 : (isFocused ? 1.05 : 1.0))
+            .animation(reduceMotion ? nil : .easeInOut(duration: 0.15), value: isFocused)
+    }
+}
+
 // MARK: - About Link Button Style
 
 /// Subtle fine-print link that shows a proper focus state on tvOS.
@@ -152,7 +184,8 @@ private struct AboutLinkStyle: ButtonStyle {
     IdleView(
         deviceName: "Living Room Apple TV",
         ipAddress: "192.168.1.42",
-        port: 46899
+        port: 46899,
+        onPlaySample: {}
     )
 }
 #endif

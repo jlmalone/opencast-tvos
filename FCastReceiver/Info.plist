@@ -28,13 +28,14 @@
 	<string>FCast Receiver uses the local network to receive video and audio streams from sender devices.</string>
 	<key>UIApplicationIdleTimerDisabled</key>
 	<true/>
-	<!-- Allow arbitrary HTTP loads so the receiver can play any URL the sender provides,
-	     including http:// streams, local test servers, and non-HTTPS media URLs. -->
+	<!-- Media receiver: senders provide arbitrary URLs including http:// streams,
+	     local network servers, and non-HTTPS media. AVFoundation media loads require
+	     the media exception. Local networking covers WHEP/WebRTC SDP on LAN. -->
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
 		<key>NSAllowsArbitraryLoadsForMedia</key>
+		<true/>
+		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
 </dict>
