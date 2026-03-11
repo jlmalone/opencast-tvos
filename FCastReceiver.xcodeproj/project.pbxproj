@@ -433,10 +433,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = tv.fcast.receiver;
+				PRODUCT_BUNDLE_IDENTIFIER = vision.salient.opencast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = "FCast Receiver tvOS App Store";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FCastReceiver/FCastReceiver-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -466,10 +466,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = tv.fcast.receiver;
+				PRODUCT_BUNDLE_IDENTIFIER = vision.salient.opencast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = "FCast Receiver tvOS App Store";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FCastReceiver/FCastReceiver-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

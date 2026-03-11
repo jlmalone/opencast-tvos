@@ -42,16 +42,16 @@ struct IdleView: View {
                             .accessibilityHidden(true)
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("FCast Receiver")
+                            Text("OpenCast")
                                 .font(.system(size: 44, weight: .bold))
                                 .foregroundColor(.white)
-                            Text("for Apple TV")
+                            Text("FCast-compatible receiver for Apple TV")
                                 .font(.system(size: 22, weight: .regular))
                                 .foregroundColor(.gray)
                         }
                     }
                     .accessibilityElement(children: .combine)
-                    .accessibilityLabel("FCast Receiver for Apple TV")
+                    .accessibilityLabel("OpenCast, FCast-compatible receiver for Apple TV")
 
                     // Device name
                     Text(deviceName)

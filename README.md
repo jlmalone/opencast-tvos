@@ -1,8 +1,8 @@
-# FCast Receiver for Apple TV
+# OpenCast — FCast-compatible receiver for Apple TV
 
-A native tvOS app that turns any Apple TV into an FCast receiver. Cast video and audio from [Grayjay](https://grayjay.app), the [FCast desktop app](https://fcast.org), or any FCast-compatible sender — no Apple account, no AirPlay, no subscription required.
+A free, open-source alternative to Chromecast&reg; and AirPlay&reg; for Apple TV. Cast video and audio from [Grayjay](https://grayjay.app), the [FCast desktop app](https://fcast.org), or any FCast-compatible sender — no account, no subscription, no ecosystem lock-in.
 
-This is a community implementation of the open [FCast protocol](https://fcast.org) by FUTO.
+Built by **Salient Vision Technologies, LLC**. This is an independent community implementation of the open [FCast protocol](https://fcast.org). FCast is a registered trademark of [FUTO](https://futo.org). This project is not affiliated with or endorsed by FUTO.
 
 ---
 
@@ -14,7 +14,7 @@ This is a community implementation of the open [FCast protocol](https://fcast.or
 - **Image casting** — display PNG, JPEG, and other images fullscreen (test patterns, screenshots)
 - **Custom HTTP headers** for auth-gated or DRM-protected streams
 - **Playlist support** — opcodes 15 (playUpdate) and 16 (setPlaylistItem)
-- **Idle screen** showing device name, IP address, QR code, and a "Play Sample" demo button
+- **Idle screen** showing device name, IP address, QR code, and a "Play Sample" demo button for testing without a sender
 - **Real-time state reporting** — position, duration, speed, and volume are continuously reported back to the sender
 - **Full transport control** — play, pause, resume, stop, seek, set volume, set speed via Siri Remote
 - **Accessibility** — VoiceOver labels, Dynamic Type, Reduce Motion support
@@ -55,7 +55,7 @@ open FCastReceiver.xcworkspace
 
 - Select the `FCastReceiver` target → **Signing & Capabilities**
 - Choose your development team
-- Change the Bundle Identifier if needed (default: `tv.fcast.receiver`)
+- Change the Bundle Identifier if needed (default: `vision.salient.opencast`)
 
 ### 5. Add the Multicast Networking capability
 
@@ -286,7 +286,7 @@ The [FCast protocol](https://fcast.org) is designed and maintained by **[FUTO](h
 - **Reference implementations:** [github.com/futo-org/fcast](https://github.com/futo-org/fcast)
 - **FUTO website:** [futo.org](https://futo.org)
 
-This project is an independent community implementation of the FCast protocol for tvOS. It is not affiliated with or endorsed by FUTO.
+This application is an independent community implementation of the FCast protocol. It is not affiliated with FUTO. FCast is a registered trademark of FUTO.
 
 ### Dependencies
 
@@ -299,3 +299,9 @@ This project is an independent community implementation of the FCast protocol fo
 ## License
 
 MIT — same license as the FCast protocol itself. See [futo-org/fcast](https://github.com/futo-org/fcast) for the official protocol specification.
+
+---
+
+## Trademarks
+
+FCast is a registered trademark of FUTO. Chromecast is a registered trademark of Google LLC. AirPlay is a registered trademark of Apple Inc. All other trademarks are the property of their respective owners. This project is not affiliated with or endorsed by FUTO, Google, or Apple.

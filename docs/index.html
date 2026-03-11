@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FCast Receiver for Apple TV</title>
+  <title>OpenCast — FCast-compatible receiver for Apple TV</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 700px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; line-height: 1.7; }
     h1 { font-size: 2rem; margin-bottom: 4px; }
@@ -15,16 +15,16 @@
 </head>
 <body>
 
-  <h1>FCast Receiver for Apple TV</h1>
-  <p class="subtitle">Privacy Policy &amp; App Information</p>
+  <h1>OpenCast</h1>
+  <p class="subtitle">FCast-compatible receiver for Apple TV &mdash; Privacy Policy &amp; App Information</p>
 
   <h2>Privacy Policy</h2>
-  <p><strong>Last updated: February 2026</strong></p>
+  <p><strong>Last updated: March 2026</strong></p>
 
-  <p>FCast Receiver for Apple TV does not collect, store, transmit, or share any personal data — ever.</p>
+  <p>OpenCast does not collect, store, transmit, or share any personal data — ever.</p>
 
   <h2>What this app does</h2>
-  <p>FCast Receiver listens on your local network for incoming media streams from FCast-compatible sender apps and plays them through your Apple TV. All communication happens entirely on your local network between your devices.</p>
+  <p>OpenCast listens on your local network for incoming media streams from FCast-compatible sender apps and plays them through your Apple TV. All communication happens entirely on your local network between your devices.</p>
 
   <h2>Data we collect</h2>
   <p><strong>None.</strong> Specifically:</p>
@@ -40,8 +40,8 @@
   <h2>Local network access</h2>
   <p>The app uses your local network exclusively to receive media streams from sender devices on the same network. It advertises itself via Bonjour/mDNS so sender apps can discover it automatically. No data leaves your local network.</p>
 
-  <h2>Third-party services</h2>
-  <p>This app has no third-party SDKs, analytics libraries, or external services. It is built entirely on Apple's native frameworks (SwiftUI, AVFoundation, Network.framework).</p>
+  <h2>Third-party libraries</h2>
+  <p>This app uses <a href="https://code.videolan.org/videolan/VLCKit">TVVLCKit</a> (LGPL 2.1) for broad format support and the <a href="https://webrtc.org">WebRTC</a> framework (BSD 3-Clause) for screen mirroring. Neither library collects or transmits user data.</p>
 
   <h2>Children's privacy</h2>
   <p>Because we collect no data from anyone, there are no special considerations for children.</p>
@@ -52,11 +52,11 @@
   <h2>Contact</h2>
   <p>Questions? Open an issue at <a href="https://github.com/jlmalone/fcast-appletv">github.com/jlmalone/fcast-appletv</a>.</p>
 
-  <h2>About FCast</h2>
-  <p>FCast is an open casting protocol designed by <a href="https://futo.org">FUTO</a>. This app is an independent community implementation and is not affiliated with or endorsed by FUTO.</p>
+  <h2>Trademark Notice</h2>
+  <p>This application is an independent community implementation of the <a href="https://fcast.org">FCast protocol</a>. It is not affiliated with <a href="https://futo.org">FUTO</a>. FCast is a registered trademark of FUTO.</p>
 
   <footer>
-    FCast Receiver for Apple TV &mdash; MIT License &mdash;
+    OpenCast by Salient Vision Technologies, LLC &mdash; MIT License &mdash;
     <a href="https://github.com/jlmalone/fcast-appletv">Source on GitHub</a>
   </footer>
 

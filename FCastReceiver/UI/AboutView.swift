@@ -24,10 +24,10 @@ struct AboutView: View {
                         .foregroundColor(Color(red: 0.2, green: 0.6, blue: 1.0))
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("FCast Receiver for Apple TV")
+                        Text("OpenCast")
                             .font(.system(size: 32, weight: .bold))
                             .foregroundColor(.white)
-                        Text("Version \(appVersion)  ·  Community implementation  ·  Not affiliated with FUTO")
+                        Text("Version \(appVersion)  ·  FCast-compatible receiver for Apple TV")
                             .font(.system(size: 16))
                             .foregroundColor(.gray)
                     }
@@ -49,7 +49,7 @@ struct AboutView: View {
                     VStack(alignment: .leading, spacing: 14) {
                         SectionHeader(title: "FCast Protocol", icon: "antenna.radiowaves.left.and.right")
 
-                        Text("An open casting protocol that lets you stream media\nfrom any sender to any receiver — no ecosystem lock-in.")
+                        Text("A free, open alternative to Chromecast\u{00AE} and AirPlay\u{00AE}.\nStream from any sender to any receiver — no ecosystem lock-in.")
                             .font(.system(size: 17))
                             .foregroundColor(.white.opacity(0.65))
                             .lineSpacing(4)
@@ -83,10 +83,12 @@ struct AboutView: View {
 
                         VStack(alignment: .leading, spacing: 14) {
                             SectionHeader(title: "This Project", icon: "chevron.left.forwardslash.chevron.right")
+                            CreditRow(label: "Developer", value: "Salient Vision Technologies, LLC", detail: nil)
                             CreditRow(label: "Source code", value: "github.com/jlmalone/fcast-appletv", detail: "MIT License · open source")
                             CreditRow(label: "Built with",  value: "Swift · SwiftUI · AVFoundation · TVVLCKit · Network.framework", detail: nil)
                             CreditRow(label: "License",     value: "MIT", detail: "Same license as the FCast protocol itself")
                             CreditRow(label: "Privacy Policy", value: "jlmalone.github.io/fcast-appletv", detail: "No data collected · local network only")
+                            CreditRow(label: "Trademark", value: "FCast is a registered trademark of FUTO", detail: "This is an independent community implementation, not affiliated with FUTO")
                         }
 
                         Divider().background(Color.white.opacity(0.10))

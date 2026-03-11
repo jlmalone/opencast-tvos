@@ -25,7 +25,7 @@
 		<string>_fcast._tcp</string>
 	</array>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>FCast Receiver uses the local network to receive video and audio streams from sender devices.</string>
+	<string>OpenCast uses the local network to receive video and audio streams from FCast-compatible sender devices.</string>
 	<key>UIApplicationIdleTimerDisabled</key>
 	<true/>
 	<!-- Media receiver: senders provide arbitrary URLs including http:// streams,

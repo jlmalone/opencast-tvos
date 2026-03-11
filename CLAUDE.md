@@ -1,7 +1,9 @@
-# CLAUDE.md - FCast AppleTV Receiver
+# CLAUDE.md - OpenCast (FCast-compatible receiver for Apple TV)
 
 ## Overview
 Native tvOS application implementing the FCast protocol v3 for receiving cast video/audio streams from Grayjay and FCast desktop senders. Built with SwiftUI for Apple TV.
+
+**Trademark:** FCast is a registered trademark of FUTO. This is an independent community implementation, not affiliated with FUTO. Per FUTO's trademark policy, the app uses its own unique name ("OpenCast") and original icon, with "FCast-compatible" used only to describe protocol compatibility.
 
 ## Key Features
 - **FCast Protocol v3**: Full implementation of the open casting standard
@@ -32,7 +34,7 @@ FCastReceiver/
 │   ├── VLCPlayerView.swift             # VLC wrapper with Siri Remote controls
 │   ├── WebRTCPlayerView.swift          # WebRTC video renderer (RTCMTLVideoView)
 │   ├── ImageDisplayView.swift          # AsyncImage for cast images
-│   └── AboutView.swift                 # Credits + VLC attribution
+│   └── AboutView.swift                 # Credits + VLC + trademark attribution
 ├── Utilities/
 │   └── NetworkHelper.swift
 └── Assets.xcassets/
@@ -59,17 +61,18 @@ xcodebuild -workspace FCastReceiver.xcworkspace -scheme FCastReceiver -destinati
 | `video/mp4`, `video/quicktime`, `audio/*` | `.avPlayer` | PlayerView |
 | Everything else (MKV, WebM, AVI, TS) | `.vlc` | VLCPlayerView |
 
-## Current Status (v1.4, 2026-03-11)
+## Current Status (v1.4, 2026-03-12)
 - **Media casting**: WORKING (MP4, MKV, WebM, HLS all confirmed via FCast sender)
 - **Image casting**: WORKING
 - **Screen mirroring (WHEP)**: Fixed — stored video track race condition resolved, Metal renderer verified
 - **Demo mode**: "Play Sample" on idle screen plays Big Buck Bunny MP4
-- **App Store readiness**: Privacy manifest added, ATS tightened, version bumped
+- **Trademark compliance**: Renamed from "FCast Receiver" to "OpenCast" per FUTO trademark policy
+- **App Store readiness**: Privacy manifest, original icon, ATS tightened, version bumped
 
 ## App Store Submission Notes
-- **Bundle ID**: tv.fcast.receiver
+- **Bundle ID**: vision.salient.opencast
 - **Team**: 44SCLSYCZZ
-- **Signing**: Manual — "FCast Receiver tvOS App Store" provisioning profile
+- **Signing**: Manual — needs new provisioning profile for new bundle ID
 - **Privacy**: No data collected, no tracking, no analytics. PrivacyInfo.xcprivacy included.
 - **ATS**: `NSAllowsArbitraryLoadsForMedia` + `NSAllowsLocalNetworking` (media receiver plays sender-provided URLs)
 - **LGPL**: TVVLCKit is dynamically linked via `use_frameworks!` (LGPL 2.1 compliant)
