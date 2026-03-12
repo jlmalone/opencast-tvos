@@ -84,10 +84,10 @@ struct AboutView: View {
                         VStack(alignment: .leading, spacing: 14) {
                             SectionHeader(title: "This Project", icon: "chevron.left.forwardslash.chevron.right")
                             CreditRow(label: "Developer", value: "Salient Vision Technologies, LLC", detail: nil)
-                            CreditRow(label: "Source code", value: "github.com/jlmalone/fcast-appletv", detail: "MIT License · open source")
+                            CreditRow(label: "Source code", value: "github.com/jlmalone/opencast-tvos", detail: "MIT License · open source")
                             CreditRow(label: "Built with",  value: "Swift · SwiftUI · AVFoundation · TVVLCKit · Network.framework", detail: nil)
                             CreditRow(label: "License",     value: "MIT", detail: "Same license as the FCast protocol itself")
-                            CreditRow(label: "Privacy Policy", value: "jlmalone.github.io/fcast-appletv", detail: "No data collected · local network only")
+                            CreditRow(label: "Privacy Policy", value: "jlmalone.github.io/opencast-tvos", detail: "No data collected · local network only")
                             CreditRow(label: "Trademark", value: "FCast is a registered trademark of FUTO", detail: "This is an independent community implementation, not affiliated with FUTO")
                         }
 

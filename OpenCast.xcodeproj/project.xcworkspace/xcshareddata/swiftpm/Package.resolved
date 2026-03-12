@@ -1,0 +1,15 @@
+{
+  "originHash" : "a0e48080a22d229e1b3ded03c82155f2f00dff73335592e72801224ec5c6b5a2",
+  "pins" : [
+    {
+      "identity" : "specs",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/webrtc-sdk/Specs.git",
+      "state" : {
+        "revision" : "1aadb8523929f8f2c57de850e88d7afce7ecd1c8",
+        "version" : "137.7151.0"
+      }
+    }
+  ],
+  "version" : 3
+}

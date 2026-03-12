@@ -16,9 +16,9 @@ Native tvOS application implementing the FCast protocol v3 for receiving cast vi
 
 ## Project Structure
 ```
-FCastReceiver/
-├── FCastReceiverApp.swift              # App entry point
-├── FCastReceiver-Bridging-Header.h     # TVVLCKit Obj-C bridge
+OpenCast/
+├── OpenCastApp.swift              # App entry point
+├── OpenCast-Bridging-Header.h     # TVVLCKit Obj-C bridge
 ├── PrivacyInfo.xcprivacy               # App Store privacy manifest
 ├── Protocol/
 │   ├── FCastPackets.swift              # Opcodes, message types, capabilities
@@ -49,7 +49,7 @@ FCastReceiver/
 ## Build
 ```bash
 pod install  # first time only
-xcodebuild -workspace FCastReceiver.xcworkspace -scheme FCastReceiver -destination "platform=tvOS Simulator,name=Apple TV 4K (3rd generation)" build
+xcodebuild -workspace OpenCast.xcworkspace -scheme OpenCast -destination "platform=tvOS Simulator,name=Apple TV 4K (3rd generation)" build
 ```
 
 ## Format Routing (PlayerManager.selectBackend)

@@ -1,6 +1,8 @@
 platform :tvos, '17.0'
 
-target 'FCastReceiver' do
+project 'OpenCast'
+
+target 'OpenCast' do
   use_frameworks!
   pod 'TVVLCKit', '~> 3.6.0'
 end

@@ -35,8 +35,8 @@ Built by **Salient Vision Technologies, LLC**. This is an independent community 
 ### 1. Clone
 
 ```bash
-git clone https://github.com/jlmalone/fcast-appletv.git
-cd fcast-appletv
+git clone https://github.com/jlmalone/opencast-tvos.git
+cd opencast-tvos
 ```
 
 ### 2. Install dependencies
@@ -48,12 +48,12 @@ pod install
 ### 3. Open in Xcode
 
 ```bash
-open FCastReceiver.xcworkspace
+open OpenCast.xcworkspace
 ```
 
 ### 4. Configure signing
 
-- Select the `FCastReceiver` target → **Signing & Capabilities**
+- Select the `OpenCast` target → **Signing & Capabilities**
 - Choose your development team
 - Change the Bundle Identifier if needed (default: `vision.salient.opencast`)
 
@@ -86,7 +86,7 @@ Once the app is running on your Apple TV:
 ## Project Structure
 
 ```
-FCastReceiver/
+OpenCast/
 ├── FCastReceiverApp.swift              # @main App entry point
 ├── FCastReceiver-Bridging-Header.h     # TVVLCKit Obj-C bridge
 ├── PrivacyInfo.xcprivacy               # App Store privacy manifest
@@ -180,7 +180,7 @@ Receiver →  Sender:   Pong
 The repository includes app icons generated from the official FCast brand assets (dark navy background, FCast logo centered). Icons are located in:
 
 ```
-FCastReceiver/Assets.xcassets/App Icon & Top Shelf Image.brandassets/
+OpenCast/Assets.xcassets/App Icon & Top Shelf Image.brandassets/
 ```
 
 tvOS uses a layered parallax icon format (`brandassets` + `imagestack`). Included sizes:
