@@ -2,7 +2,7 @@ platform :tvos, '17.0'
 
 project 'OpenCast'
 
-target 'OpenCast' do
+target 'OvrCast' do
   use_frameworks!
   pod 'TVVLCKit', '~> 3.6.0'
 end

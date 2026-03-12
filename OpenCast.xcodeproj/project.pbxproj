@@ -23,8 +23,8 @@
 		52A1B2C3D4E5F607A0000034 /* WHEPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000033 /* WHEPClient.swift */; };
 		52A1B2C3D4E5F607A0000036 /* WebRTCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000035 /* WebRTCPlayerView.swift */; };
 		52A1B2C3D4E5F607A0000037 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000038 /* PrivacyInfo.xcprivacy */; };
-		6D278CC96D58282D86F6A25C /* Pods_OpenCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE3AFA98E6102A210B8B49F /* Pods_OpenCast.framework */; };
 		83F9B2122F62489600B0A386 /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 52A1B2C3D4E5F607A0000032 /* WebRTC */; };
+		9A042575C134BE4934A134C9 /* Pods_OvrCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992ADD010D9F23A0A48CEC49 /* Pods_OvrCast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,9 @@
 		52A1B2C3D4E5F607A0000033 /* WHEPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WHEPClient.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000035 /* WebRTCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCPlayerView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000038 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		AAE3AFA98E6102A210B8B49F /* Pods_OpenCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		992ADD010D9F23A0A48CEC49 /* Pods_OvrCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OvrCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3126B7136EBF4917B00746A /* Pods-OvrCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OvrCast.debug.xcconfig"; path = "Target Support Files/Pods-OvrCast/Pods-OvrCast.debug.xcconfig"; sourceTree = "<group>"; };
+		E9DC2F9940A06AE68D895D49 /* Pods-OvrCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OvrCast.release.xcconfig"; path = "Target Support Files/Pods-OvrCast/Pods-OvrCast.release.xcconfig"; sourceTree = "<group>"; };
 		FE6312F7B153F93EF751A04A /* Pods-OpenCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCast.debug.xcconfig"; path = "Target Support Files/Pods-OpenCast/Pods-OpenCast.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83F9B2122F62489600B0A386 /* WebRTC in Frameworks */,
-				6D278CC96D58282D86F6A25C /* Pods_OpenCast.framework in Frameworks */,
+				9A042575C134BE4934A134C9 /* Pods_OvrCast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +73,7 @@
 		3B005A2CA84A24861E461129 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AAE3AFA98E6102A210B8B49F /* Pods_OpenCast.framework */,
+				992ADD010D9F23A0A48CEC49 /* Pods_OvrCast.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,6 +161,8 @@
 				0D86799A1BE18DB37235E30C /* Pods-FCastReceiver.release.xcconfig */,
 				FE6312F7B153F93EF751A04A /* Pods-OpenCast.debug.xcconfig */,
 				359DEC4B59B77251CC34734D /* Pods-OpenCast.release.xcconfig */,
+				B3126B7136EBF4917B00746A /* Pods-OvrCast.debug.xcconfig */,
+				E9DC2F9940A06AE68D895D49 /* Pods-OvrCast.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -166,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		52A1B2C3D4E5F607A0000002 /* OpenCast */ = {
+		52A1B2C3D4E5F607A0000002 /* OvrCast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52A1B2C3D4E5F607A000000E /* Build configuration list for PBXNativeTarget "OpenCast" */;
+			buildConfigurationList = 52A1B2C3D4E5F607A000000E /* Build configuration list for PBXNativeTarget "OvrCast" */;
 			buildPhases = (
 				C9284993D7A86272142F125E /* [CP] Check Pods Manifest.lock */,
 				52A1B2C3D4E5F607A0000003 /* Sources */,
@@ -180,11 +184,11 @@
 			);
 			dependencies = (
 			);
-			name = OpenCast;
+			name = OvrCast;
 			packageProductDependencies = (
 				52A1B2C3D4E5F607A0000032 /* WebRTC */,
 			);
-			productName = OpenCast;
+			productName = OvrCast;
 			productReference = 52A1B2C3D4E5F607A000001E /* OpenCast.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -219,7 +223,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52A1B2C3D4E5F607A0000002 /* OpenCast */,
+				52A1B2C3D4E5F607A0000002 /* OvrCast */,
 			);
 		};
 /* End PBXProject section */
@@ -243,15 +247,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OpenCast/Pods-OpenCast-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-OvrCast/Pods-OvrCast-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OpenCast/Pods-OpenCast-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-OvrCast/Pods-OvrCast-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OpenCast/Pods-OpenCast-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OvrCast/Pods-OvrCast-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C9284993D7A86272142F125E /* [CP] Check Pods Manifest.lock */ = {
@@ -269,7 +273,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OpenCast-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-OvrCast-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -419,7 +423,7 @@
 		};
 		52A1B2C3D4E5F607A0000011 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE6312F7B153F93EF751A04A /* Pods-OpenCast.debug.xcconfig */;
+			baseConfigurationReference = B3126B7136EBF4917B00746A /* Pods-OvrCast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -452,7 +456,7 @@
 		};
 		52A1B2C3D4E5F607A0000012 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 359DEC4B59B77251CC34734D /* Pods-OpenCast.release.xcconfig */;
+			baseConfigurationReference = E9DC2F9940A06AE68D895D49 /* Pods-OvrCast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -495,7 +499,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52A1B2C3D4E5F607A000000E /* Build configuration list for PBXNativeTarget "OpenCast" */ = {
+		52A1B2C3D4E5F607A000000E /* Build configuration list for PBXNativeTarget "OvrCast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52A1B2C3D4E5F607A0000011 /* Debug */,
