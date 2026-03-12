@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct OpenCastApp: App {
+struct OvrCastApp: App {
 
     @State private var playerManager = PlayerManager()
     @State private var server: FCastServer?

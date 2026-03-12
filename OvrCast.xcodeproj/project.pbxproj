@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52A1B2C3D4E5F607A000001F /* OpenCastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000013 /* OpenCastApp.swift */; };
+		52A1B2C3D4E5F607A000001F /* OvrCastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000013 /* OvrCastApp.swift */; };
 		52A1B2C3D4E5F607A0000020 /* FCastPackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000014 /* FCastPackets.swift */; };
 		52A1B2C3D4E5F607A0000021 /* FCastSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000015 /* FCastSession.swift */; };
 		52A1B2C3D4E5F607A0000022 /* FCastServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1B2C3D4E5F607A0000016 /* FCastServer.swift */; };
@@ -30,8 +30,8 @@
 /* Begin PBXFileReference section */
 		0A3D8D870AA91313279569B4 /* Pods-FCastReceiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCastReceiver.debug.xcconfig"; path = "Target Support Files/Pods-FCastReceiver/Pods-FCastReceiver.debug.xcconfig"; sourceTree = "<group>"; };
 		0D86799A1BE18DB37235E30C /* Pods-FCastReceiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCastReceiver.release.xcconfig"; path = "Target Support Files/Pods-FCastReceiver/Pods-FCastReceiver.release.xcconfig"; sourceTree = "<group>"; };
-		359DEC4B59B77251CC34734D /* Pods-OpenCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCast.release.xcconfig"; path = "Target Support Files/Pods-OpenCast/Pods-OpenCast.release.xcconfig"; sourceTree = "<group>"; };
-		52A1B2C3D4E5F607A0000013 /* OpenCastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCastApp.swift; sourceTree = "<group>"; };
+		359DEC4B59B77251CC34734D /* Pods-OpenCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCast.release.xcconfig"; path = "Target Support Files/Pods-OvrCast/Pods-OpenCast.release.xcconfig"; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A0000013 /* OvrCastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvrCastApp.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000014 /* FCastPackets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastPackets.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000015 /* FCastSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastSession.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000016 /* FCastServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCastServer.swift; sourceTree = "<group>"; };
@@ -41,20 +41,20 @@
 		52A1B2C3D4E5F607A000001A /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52A1B2C3D4E5F607A000001D /* OpenCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenCast.entitlements; sourceTree = "<group>"; };
-		52A1B2C3D4E5F607A000001E /* OpenCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52A1B2C3D4E5F607A000001D /* OvrCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OvrCast.entitlements; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000001E /* OvrCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OvrCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A1B2C3D4E5F607A0000028 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000002B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000002C /* VLCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A000002D /* ImageDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayView.swift; sourceTree = "<group>"; };
-		52A1B2C3D4E5F607A000002E /* OpenCast-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCast-Bridging-Header.h"; sourceTree = "<group>"; };
+		52A1B2C3D4E5F607A000002E /* OvrCast-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OvrCast-Bridging-Header.h"; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000033 /* WHEPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WHEPClient.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000035 /* WebRTCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCPlayerView.swift; sourceTree = "<group>"; };
 		52A1B2C3D4E5F607A0000038 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		992ADD010D9F23A0A48CEC49 /* Pods_OvrCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OvrCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3126B7136EBF4917B00746A /* Pods-OvrCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OvrCast.debug.xcconfig"; path = "Target Support Files/Pods-OvrCast/Pods-OvrCast.debug.xcconfig"; sourceTree = "<group>"; };
 		E9DC2F9940A06AE68D895D49 /* Pods-OvrCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OvrCast.release.xcconfig"; path = "Target Support Files/Pods-OvrCast/Pods-OvrCast.release.xcconfig"; sourceTree = "<group>"; };
-		FE6312F7B153F93EF751A04A /* Pods-OpenCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCast.debug.xcconfig"; path = "Target Support Files/Pods-OpenCast/Pods-OpenCast.debug.xcconfig"; sourceTree = "<group>"; };
+		FE6312F7B153F93EF751A04A /* Pods-OpenCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCast.debug.xcconfig"; path = "Target Support Files/Pods-OvrCast/Pods-OpenCast.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,28 +81,28 @@
 		52A1B2C3D4E5F607A0000006 = {
 			isa = PBXGroup;
 			children = (
-				52A1B2C3D4E5F607A0000007 /* OpenCast */,
+				52A1B2C3D4E5F607A0000007 /* OvrCast */,
 				52A1B2C3D4E5F607A000000C /* Products */,
 				6265AAABE910551CBC602B63 /* Pods */,
 				3B005A2CA84A24861E461129 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		52A1B2C3D4E5F607A0000007 /* OpenCast */ = {
+		52A1B2C3D4E5F607A0000007 /* OvrCast */ = {
 			isa = PBXGroup;
 			children = (
-				52A1B2C3D4E5F607A0000013 /* OpenCastApp.swift */,
-				52A1B2C3D4E5F607A000002E /* OpenCast-Bridging-Header.h */,
+				52A1B2C3D4E5F607A0000013 /* OvrCastApp.swift */,
+				52A1B2C3D4E5F607A000002E /* OvrCast-Bridging-Header.h */,
 				52A1B2C3D4E5F607A0000008 /* Protocol */,
 				52A1B2C3D4E5F607A0000009 /* Player */,
 				52A1B2C3D4E5F607A000000A /* UI */,
 				52A1B2C3D4E5F607A000000B /* Utilities */,
 				52A1B2C3D4E5F607A000001B /* Assets.xcassets */,
 				52A1B2C3D4E5F607A000001C /* Info.plist */,
-				52A1B2C3D4E5F607A000001D /* OpenCast.entitlements */,
+				52A1B2C3D4E5F607A000001D /* OvrCast.entitlements */,
 				52A1B2C3D4E5F607A0000038 /* PrivacyInfo.xcprivacy */,
 			);
-			path = OpenCast;
+			path = OvrCast;
 			sourceTree = "<group>";
 		};
 		52A1B2C3D4E5F607A0000008 /* Protocol */ = {
@@ -149,7 +149,7 @@
 		52A1B2C3D4E5F607A000000C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52A1B2C3D4E5F607A000001E /* OpenCast.app */,
+				52A1B2C3D4E5F607A000001E /* OvrCast.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 				52A1B2C3D4E5F607A0000032 /* WebRTC */,
 			);
 			productName = OvrCast;
-			productReference = 52A1B2C3D4E5F607A000001E /* OpenCast.app */;
+			productReference = 52A1B2C3D4E5F607A000001E /* OvrCast.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +207,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 52A1B2C3D4E5F607A000000D /* Build configuration list for PBXProject "OpenCast" */;
+			buildConfigurationList = 52A1B2C3D4E5F607A000000D /* Build configuration list for PBXProject "OvrCast" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -287,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52A1B2C3D4E5F607A000001F /* OpenCastApp.swift in Sources */,
+				52A1B2C3D4E5F607A000001F /* OvrCastApp.swift in Sources */,
 				52A1B2C3D4E5F607A0000020 /* FCastPackets.swift in Sources */,
 				52A1B2C3D4E5F607A0000021 /* FCastSession.swift in Sources */,
 				52A1B2C3D4E5F607A0000022 /* FCastServer.swift in Sources */,
@@ -427,7 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = OpenCast/OpenCast.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OvrCast/OvrCast.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -436,7 +436,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 44SCLSYCZZ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = OpenCast/Info.plist;
+				INFOPLIST_FILE = OvrCast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,7 +447,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = OpenCast;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OpenCast/OpenCast-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OvrCast/OvrCast-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 17.0;
@@ -460,7 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = OpenCast/OpenCast.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OvrCast/OvrCast.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -469,7 +469,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 44SCLSYCZZ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = OpenCast/Info.plist;
+				INFOPLIST_FILE = OvrCast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,7 +480,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = OpenCast;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OpenCast/OpenCast-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OvrCast/OvrCast-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 17.0;
@@ -490,7 +490,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52A1B2C3D4E5F607A000000D /* Build configuration list for PBXProject "OpenCast" */ = {
+		52A1B2C3D4E5F607A000000D /* Build configuration list for PBXProject "OvrCast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52A1B2C3D4E5F607A000000F /* Debug */,

@@ -1,6 +1,6 @@
 platform :tvos, '17.0'
 
-project 'OpenCast'
+project 'OvrCast'
 
 target 'OvrCast' do
   use_frameworks!
