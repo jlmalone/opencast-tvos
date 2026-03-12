@@ -24,7 +24,7 @@ struct AboutView: View {
                         .foregroundColor(Color(red: 0.2, green: 0.6, blue: 1.0))
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("OpenCast")
+                        Text("OvrCast")
                             .font(.system(size: 32, weight: .bold))
                             .foregroundColor(.white)
                         Text("Version \(appVersion)  ·  FCast-compatible receiver for Apple TV")

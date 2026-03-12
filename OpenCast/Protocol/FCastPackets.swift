@@ -97,7 +97,7 @@ struct PlaybackErrorMessage: Codable {
 
 struct InitialReceiverMessage: Codable {
     var displayName: String
-    var appName: String = "OpenCast tvOS"
+    var appName: String = "OvrCast tvOS"
     var appVersion: String = "1.4.0"
     var playData: PlayMessage? = nil
     var experimentalCapabilities: ReceiverCapabilities? = nil

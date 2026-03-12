@@ -1,4 +1,4 @@
-# OpenCast — FCast-compatible receiver for Apple TV
+# OvrCast — FCast-compatible receiver for Apple TV
 
 A free, open-source alternative to Chromecast&reg; and AirPlay&reg; for Apple TV. Cast video and audio from [Grayjay](https://grayjay.app), the [FCast desktop app](https://fcast.org), or any FCast-compatible sender — no account, no subscription, no ecosystem lock-in.
 
