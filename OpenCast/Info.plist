@@ -13,7 +13,9 @@
 	<key>CFBundleIconName</key>
 	<string>App Icon &amp; Top Shelf Image</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>OvrCast</string>
+	<key>CFBundleDisplayName</key>
+	<string>OvrCast</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>

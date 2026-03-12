@@ -1,9 +1,9 @@
-# CLAUDE.md - OpenCast (FCast-compatible receiver for Apple TV)
+# CLAUDE.md - OvrCast (FCast-compatible receiver for Apple TV)
 
 ## Overview
 Native tvOS application implementing the FCast protocol v3 for receiving cast video/audio streams from Grayjay and FCast desktop senders. Built with SwiftUI for Apple TV.
 
-**Trademark:** FCast is a registered trademark of FUTO. This is an independent community implementation, not affiliated with FUTO. Per FUTO's trademark policy, the app uses its own unique name ("OpenCast") and original icon, with "FCast-compatible" used only to describe protocol compatibility.
+**Trademark:** FCast is a registered trademark of FUTO. This is an independent community implementation, not affiliated with FUTO. Per FUTO's trademark policy, the app uses its own unique name ("OvrCast") and original icon, with "FCast-compatible" used only to describe protocol compatibility.
 
 ## Key Features
 - **FCast Protocol v3**: Full implementation of the open casting standard
@@ -66,7 +66,7 @@ xcodebuild -workspace OpenCast.xcworkspace -scheme OpenCast -destination "platfo
 - **Image casting**: WORKING
 - **Screen mirroring (WHEP)**: Fixed — stored video track race condition resolved, Metal renderer verified
 - **Demo mode**: "Play Sample" on idle screen plays Big Buck Bunny MP4
-- **Trademark compliance**: Renamed from "FCast Receiver" to "OpenCast" per FUTO trademark policy
+- **Trademark compliance**: Renamed from "FCast Receiver" to "OvrCast" per FUTO trademark policy
 - **App Store readiness**: Privacy manifest, original icon, ATS tightened, version bumped
 
 ## App Store Submission Notes
